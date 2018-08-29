@@ -1,0 +1,687 @@
+html, body {
+	-ms-content-zooming: none;
+	overflow: hidden;
+	min-width: 0px;
+}
+
+#main{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+/* Úprava menu (spodního) */
+.main-view-container{
+	padding-left: 0px;
+}
+
+.nav-bar-container{
+	width: 100%;
+	padding-bottom: 0px !important;
+	z-index: 100;
+	background: black;
+	height: 55px;
+	bottom: 0px;
+	top: auto;
+}
+
+.navBar{
+	padding: 0px !important;
+}
+
+.navBar > div:nth-of-type(2){
+	display: none;
+}
+
+.sessionInfo{
+	padding: 0px !important;
+	border-top: none;
+}
+
+.navBar .recently-played{
+	display: none;
+}
+
+.navBar-header{
+	display: none;
+}
+
+.navBar ul{
+	display: flex;
+	flex-flow: row;
+}
+
+.navBar ul > li{
+	margin: 0px auto;
+	min-width: 20%;
+}
+
+.navBar ul > li:nth-of-type(2){
+	order: -1;
+}
+
+.navBar-item--with-icon-left{
+	padding: 0px;
+	padding-bottom: 3px;
+}
+
+.navbar-link__text, .sessionInfo .user-link {
+	position: initial;
+	font-size: 10px !important;
+	width: initial;
+	height: initial;
+	margin: 0px !important;
+	line-height: initial !important;
+	letter-spacing: initial !important;
+	font-weight: 600 !important;
+}
+
+.navBar-link, .sessionInfo a{
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+.sessionInfo a {
+	color: hsla(0, 0%, 100%, 0.6);
+}
+
+.navBar-link .icon{
+	position: initial !important;
+	order: -1;
+}
+
+.user-widget{
+	margin: 0px;
+}
+
+.sessionInfo .avatar.user-avatar{
+	width: 24px !important;
+	height: 24px !important;
+}
+
+/* Úprava dialogu pøihlášení/registrace */
+
+#login-method .step-inner {
+	margin: auto;
+	max-width: 100% !important;
+}
+
+#login-method .step-outer, #screen-signup-flow {
+	width: 100% !important;
+}
+
+#login-features {
+	display: none !important;
+}
+
+#login{
+	width: 100% !important;
+}
+
+/* Úprava základních prvkù stránky */
+.main-view-container h1 {
+	font-size: 20px !important;
+	line-height: 35px !important;
+}
+
+.main-view-container nav {
+	padding: 10px 0 !important;
+	border-bottom: 1px solid hsla(0, 0%, 100%, 0.4);
+	padding-bottom: 15px !important;
+	/*padding: 10px;*/
+}
+
+.main-view-container nav ul {
+	display: flex !important;
+	flex-flow: column;
+}
+
+.main-view-container nav ul li {
+	text-align: left !important;
+}
+
+.main-view-container nav ul li a{
+	font-size: 15px !important;
+	margin: 0.4em 0.8em !important;
+}
+
+.main-view-container nav ul li a::before {
+	height: 30px !important;
+	width: 3px !important;
+	left: 10px !important;
+}
+
+.contentSpacing{
+	padding: 0 1em;
+}
+
+.main-view-container .asideButton{
+	display: none;
+}
+
+/* Vyhledávání */
+
+
+.inputBox{
+	padding: 12px 0px;
+}
+
+.inputBox-label{
+	display: none;
+}
+
+.inputBox-input{
+	font-size: 20px;
+	line-height: 32px;
+}
+
+/* Skrýt menu u vyhledávání */
+.main-view-container > .hw-accelerate > section > div:nth-of-type(2) > nav ul, .artist nav ul{
+	overflow: auto;
+	flex-flow: row;
+	align-items: center;
+	-ms-overflow-style: none;
+}
+
+.main-view-container > .hw-accelerate > section > div:nth-of-type(2) > nav, .artist nav{
+	padding: 0px !important;
+	padding-bottom: 8px !important;
+	margin-bottom: 12px !important;
+	border-bottom: 1px solid hsla(0, 0%, 100%, 0.2);
+	position: relative;
+}
+
+.main-view-container > .hw-accelerate > section > div:nth-of-type(2) > nav::before,
+.main-view-container > .hw-accelerate > section > div:nth-of-type(2) > nav::after,
+.artist nav::before, .artist nav::After {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 15px;
+	left: 0px;
+	top: 0px;
+	z-index: 50;
+	box-shadow: inset 15px 0px 10px -3px hsl(0, 0%, 7%);
+}
+
+.main-view-container > .hw-accelerate > section > div:nth-of-type(2) > nav::after, .artist nav::after{
+	right: 0px;
+	left: auto;
+	box-shadow: inset -15px 0px 10px -3px hsl(0, 0%, 7%);
+}
+
+.main-view-container > .hw-accelerate > section > div:nth-of-type(2) > nav ul li, .artist nav ul li {
+	text-align: center !important;
+}
+
+.main-view-container > .hw-accelerate > section > div:nth-of-type(2) > nav ul li a::before, .artist nav ul li a::before{
+	height: 2px !important;
+	width: 50px !important;
+	left: 50% !important;
+	margin-left: -25px !important;
+}
+
+.main-view-container > .hw-accelerate > section > div:nth-of-type(2) > .contentSpacing > .container-fluid.container-fluid--noSpaceAround > .row:first-of-type > .top-artist {
+	display: none;
+}
+
+/* Skladba v seznamu  */
+.tracklist-row{
+	position: relative;
+}
+
+.tracklist-row .tracklist-play-pause{
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+}
+
+.tracklist-col.position-outer{
+	padding-right: 0px;
+	text-align: left;
+	width: 2em;
+}
+
+.tracklist-row .tracklist-play-pause *{
+	display: none;
+}
+
+.tracklist-row--active .tracklist-play-pause{
+	display: none;
+}
+
+.tracklist-col.more{
+	display: block;
+	padding-right: 0px;
+	position: relative;
+	z-index: 20;
+}
+
+.tracklist-col-duration{
+	padding-right: 0px;
+	width: 3em;
+}
+
+.tracklist-col.name .second-line{
+	position: relative;
+	z-index: 20;
+}
+
+.tracklist-play-pause.tracklist-middle-align {
+	transform: initial;
+}
+
+/* Obrázky (alb, umìlcù, podcastù, playlistù, ...) */
+
+.media-object{
+	padding-bottom: 1.5em;
+}
+
+.view-more-button .btn{
+	margin-top: 0px;
+	padding-top: 0px;
+	padding: 5px;
+}
+
+.view-more{
+	padding-bottom: 10px;
+}
+
+/* Playlist, Alba, Podcasty, Daily mixy */
+
+.content.playlist, .content.album, .content.show-page, .content{
+	padding-top: 0px;
+}
+
+.content .entity-info{
+	flex-flow: column;
+	position: relative;
+	background: rgba(0, 0, 0, 0.7);
+	left: calc(-1em - 8px);
+	max-width: 100vw;
+	width: 100vw;
+	margin-bottom: 40px;
+	padding-bottom: 0px;
+}
+
+.entity-info .media-object{
+	margin: 0px;
+	width: 100%;
+}
+
+.entity-info .media-bd{
+	text-align: center;
+	margin: auto;
+	padding-top: 20px;
+}
+
+.entity-info .media-bd > button{
+	margin-bottom: -20px;
+	margin-top: 25px;
+	transform: scale(1.2);
+}
+
+.entity-info .media-bd .horizontal-list > button{
+	display: none;
+}
+
+.entity-info .media-bd .horizontal-list  button {
+	margin: 0;
+	padding: 0;
+}
+
+.entity-info .media-bd .horizontal-list, .header-buttons .react-contextmenu-wrapper {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+.entity-info .media-object button.cover-art-playback {
+	display: none !important;
+}
+
+.entity-info .cover-art, .entity-info .media-object{
+	position: initial;
+	width: 0px !important;
+	height: 0px !important;
+}
+
+.entity-info .media-object .cover-art-image{
+	filter: initial !important;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+
+}
+
+.entity-info .media-object .cover-art .icon {
+	display: none;
+}
+
+header .daily-mix-decoration{
+	display: none;
+}
+
+/* Artist */
+.header-buttons .react-contextmenu-wrapper button {
+	margin: 0px;
+}
+
+.header-buttons > * {
+	position: relative;
+}
+
+.header-buttons{
+	position: initial !important;
+}
+
+.header-buttons .btn-black{
+	display: none;
+}
+
+header.artist-header .monthly-listeners{
+	padding-top: 50px;
+}
+
+.artist nav{
+	margin-bottom: 0px !important;
+}
+
+/* Dialog */
+.dialog .contentSpacing > div:first-of-type > button, .dialog > div:first-of-type > .btn-transparent{
+	margin: 0px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	min-width: initial;
+	width: auto !important;
+	transform: scale(0.7);
+}
+
+.dialog h1{
+	font-size: 30px;
+	line-height: 40px;
+	padding-top: 20px;
+}
+
+.dialog > div:first-of-type{
+	justify-content: flex-start !important;
+}
+
+.dialog .asideButton button{
+	transform: scale(1.2);
+	margin-bottom: 0px;
+	margin-top: 30px;
+}
+
+.dialog .button-group__item button {
+	transform: scale(1.1);
+	margin: 0px 6px;
+}
+
+/* Tracking bar */
+.nowPlayingBar-container {
+	bottom: 0px !important;
+	height: 100%;
+	display: flex;
+}
+
+.now-playing-bar-container{
+	min-width: initial;
+	width: 100%;
+}
+
+.now-playing-bar{
+	flex-flow: column;
+	height: 100%;
+	justify-content: flex-end;
+	padding: 0px;
+	position: relative;
+}
+
+.now-playing-bar > *{
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+.now-playing__cover-art .cover-art{
+	width: 200px !important;
+	height: 200px !important;
+}
+
+@media (min-width: 320px){
+	.now-playing__cover-art .cover-art {
+		width: 300px !important;
+		height: 300px !important;
+	}
+}
+
+@media (min-width: 480px) {
+	.now-playing__cover-art .cover-art {
+		width: 460px !important;
+		height: 460px !important;
+	}
+}
+
+.now-playing__cover-art{
+	margin-right: 0px !important;
+}
+
+.now-playing-bar__left {
+	width: 100%;
+	height: 100%;
+}
+
+.now-playing{
+	flex-flow: column;
+	height: 100%;
+}
+
+.now-playing > span{
+	margin: auto;
+	position: relative;
+}
+
+.now-playing > button {
+	position: absolute;
+	left: 0px;
+	bottom: 5px;
+	transform: scale(1.2);
+	margin: 4px 8px;
+}
+
+.now-playing .track-info {
+	align-items: center;
+	padding-bottom: 8px;
+}
+
+.now-playing .track-info__name{
+	font-size: 18px;
+}
+
+.now-playing .track-info__artists {
+	font-size: 14px;
+}
+
+.now-playing-bar__center{
+	width: 100%;
+	padding-bottom: 5px;
+}
+
+.playback-bar{
+	order: -1;
+}
+
+.player-controls__buttons{
+	margin-top: 12px;
+	width: auto;
+}
+
+.now-playing-bar__right {
+	align-self: flex-end;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.now-playing__radio{
+	position: initial;
+}
+
+.now-playing-bar__right__inner {
+	width: auto;
+}
+
+.now-playing__radio-icon{
+	width: 48px;
+	height: 48px;
+	display: flex;
+}
+
+.now-playing__radio-icon svg{
+	margin: auto;
+}
+
+.now-playing-bar__center .control-button {
+	transform: scale(1.5);
+	margin: 8px 12px;
+}
+
+.control-button--circled:hover{
+	transform: scale(1.45);
+}
+
+.now-playing-bar__right .control-button {
+	transform: scale(1.2);
+	margin: 4px 8px;
+}
+
+.connect-bar::after{
+	right: 160px;
+}
+
+.volume-bar{
+	width: 130px;
+}
+
+.compactPlayingBar .nowPlayingBar-container {
+	bottom: 55px !important;
+	height: auto;
+}
+
+.compactPlayingBar .player-controls__buttons .control-button {
+	display: none;
+}
+
+.compactPlayingBar .player-controls__buttons {
+	margin: 0px;
+}
+
+.compactPlayingBar .player-controls__buttons .control-button.control-button--circled {
+	display: initial;
+	transform: initial;
+	margin: 0px;
+}
+
+.compactPlayingBar .now-playing-bar__right {
+	display: none;
+}
+
+.compactPlayingBar .now-playing-bar__left {
+	padding: 0px;
+}
+
+.compactPlayingBar .now-playing-bar__center {
+	width: auto;
+	padding-bottom: 0px;
+}
+
+.compactPlayingBar .connect-bar {
+	display: none !important;
+}
+
+.compactPlayingBar .now-playing__cover-art .cover-art{
+	width: 48px !important;
+	height: 48px !important;
+}
+
+.compactPlayingBar .playback-bar__progress-time{
+	display: none;
+}
+
+.compactPlayingBar .playback-bar{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	z-index: 2;
+}
+
+.compactPlayingBar .now-playing__radio {
+	position: relative;
+}
+
+.compactPlayingBar .playback-bar .progress-bar{
+	height: 2px;
+	overflow: hidden;
+}
+
+.compactPlayingBar .playback-bar .progress-bar * {
+	border-radius: 0px;
+}
+
+.compactPlayingBar .now-playing .track-info {
+	align-items: flex-start;
+}
+
+.compactPlayingBar .now-playing{
+	flex-flow: row;
+}
+
+.compactPlayingBar .now-playing > .track-info{
+	padding-bottom: 0px;
+}
+
+.compactPlayingBar .now-playing > button {
+	display: none;
+}
+
+.compactPlayingBar .now-playing > span {
+	margin: 0px;
+	margin-right: 8px;
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.compactPlayingBar .now-playing-bar{
+	flex-flow: row;
+}
+
+.compactPlayingBar .now-playing .track-info__name {
+	font-size: 16px;
+}
+
+.compactPlayingBar .now-playing .track-info__artists {
+	font-size: 12px;
+}
+
+.compactPlayingBar .expand-playing-bar{
+	position: absolute;
+	z-index: 1;
+	top: 0px;
+	left: 0px;
+	width: calc(100% - 60px);
+	height: 100%;
+}
