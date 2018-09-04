@@ -60,7 +60,7 @@ function InjectBasicLayout() {
 		document.head.appendChild(customStyle);
 
 		document.getElementById("signup-spotify").addEventListener("click", function () {
-			location.href = "https://www.spotify.com/cz/signup/?forward_url=https%3A%2F%2Fopen.spotify.com%2Fbrowse%2Ffeatured";
+			location.href = "https://www.spotify.com/signup/?forward_url=https%3A%2F%2Fopen.spotify.com%2Fbrowse%2Ffeatured";
 		});
 	} catch (e) {}
 }
@@ -88,12 +88,34 @@ function InjectCustomLayout() {
 	window.addEventListener("click", ReactToURLChange);
 	window.addEventListener("popstate", ReactToURLChange);
 
-	//document.getElementsByClassName("user-link")[0].innerHTML = "User";
+	document.querySelector(".sessionInfo a").addEventListener("click", ReactToURLChange);
+
+	document.querySelector(".user-widget .user-link").innerHTML = "More";
+	document.querySelector(".user-widget .user-avatar").innerHTML = '<div class="icon">\
+		<svg class="normal-icon" viewBox="0 0 512 512" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="m 256,184 c -39.8,0 -72,32.2 -72,72 0,39.8 32.2,72 72,72 39.8,0 72,-32.2 72,-72 0,-39.8 -32.2,-72 -72,-72 z m 0,122.66667 c -22.1,0 -50.66667,-28.56667 -50.66667,-50.66667 0,-22.1 28.56667,-50.66667 50.66667,-50.66667 22.1,0 50.66667,28.56667 50.66667,50.66667 0,22.1 -28.56667,50.66667 -50.66667,50.66667 z M 432,184 c -39.8,0 -72,32.2 -72,72 0,39.8 32.2,72 72,72 39.8,0 72,-32.2 72,-72 0,-39.8 -32.2,-72 -72,-72 z m 0,122.66667 c -22.1,0 -50.66667,-28.56667 -50.66667,-50.66667 0,-22.1 28.56667,-50.66667 50.66667,-50.66667 22.1,0 50.66667,28.56667 50.66667,50.66667 0,22.1 -28.56667,50.66667 -50.66667,50.66667 z M 80,184 c -39.8,0 -72,32.2 -72,72 0,39.8 32.2,72 72,72 39.8,0 72,-32.2 72,-72 0,-39.8 -32.2,-72 -72,-72 z m 0,122.66667 C 57.9,306.66667 29.333333,278.1 29.333333,256 29.333333,233.9 57.9,205.33333 80,205.33333 c 22.1,0 50.66667,28.56667 50.66667,50.66667 0,22.1 -28.56667,50.66667 -50.66667,50.66667 z"></path></svg>\
+		<svg class="active-icon" viewBox="0 0 512 512" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"></path></svg>\
+		</div>';
+}
+
+var pinTileButton = document.createElement("div");
+pinTileButton.className = "button-group__item";
+pinTileButton.innerHTML = '<button class="btn btn-black btn-small pintile-button" style="min-width: 240px;">PIN TRANSPARENT TILE</button>';
+pinTileButton.addEventListener("click", function () {
+	external.notify("RPTT");
+});
+
+function PopulateSettingsPage() {
+	if(document.getElementsByClassName(".pintile-button").length == 0)
+		document.querySelector(".accountPage-body .button-group").appendChild(pinTileButton);
 }
 
 function ReactToURLChange() {
 	if (document.location.hash.indexOf("largecontrol") < 0) {
 		document.getElementById("main").className = "compactPlayingBar";
+	}
+
+	if (document.location.pathname.indexOf("/settings/account") >= 0) {
+		PopulateSettingsPage();
 	}
 }
 

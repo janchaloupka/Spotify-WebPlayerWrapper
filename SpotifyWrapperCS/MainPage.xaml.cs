@@ -18,6 +18,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Web.Http;
+using Windows.UI.StartScreen;
+using Windows.UI;
+using Windows.Web;
 
 // Dokumentaci k šabloně položky Prázdná stránka najdete na adrese https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x405
 
@@ -45,6 +48,11 @@ namespace SpotifyWrapperCS
 			MediaDisplayUpdater.Update();
 
 			LoadWebPlayer();
+		}
+
+		private void Page_Loaded(object sender, RoutedEventArgs e)
+		{
+			
 		}
 
 		private async void MediaControls_ButtonPressed(SystemMediaTransportControls sender, SystemMediaTransportControlsButtonPressedEventArgs args)
@@ -97,8 +105,8 @@ namespace SpotifyWrapperCS
 
 		private void WebPlayer_NavigationStarting(WebView sender, WebViewNavigationStartingEventArgs args)
 		{
-			Debug.WriteLine(args.Uri);
-			if (args.Uri.Host == "www.spotify.com" && !args.Uri.AbsolutePath.Contains("signup"))
+			//Debug.WriteLine(args.Uri);
+			if (args.Uri.Host == "www.spotify.com" && !args.Uri.AbsolutePath.Contains("signup") && sender.Source.Host != "www.facebook.com")
 			{
 				args.Cancel = true;
 
@@ -121,7 +129,8 @@ namespace SpotifyWrapperCS
 		bool _isBackEvent = false;
 		private async void WebPlayer_NavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs args)
 		{
-			if (!args.IsSuccess)
+			Debug.WriteLine("Attempt: " + args.Uri.ToString());
+			if (!args.IsSuccess && args.WebErrorStatus == WebErrorStatus.NotFound)
 			{
 				ContentDialog noWifiDialog = new ContentDialog
 				{
@@ -156,7 +165,7 @@ namespace SpotifyWrapperCS
 			CoreApplication.Exit();
 		}
 
-		private void WebPlayer_ScriptNotify(object sender, NotifyEventArgs e)
+		private async void WebPlayer_ScriptNotify(object sender, NotifyEventArgs e)
 		{
 			string[] data = e.Value.Split('\n');
 			if(data[0] == "SMCI")
@@ -171,6 +180,31 @@ namespace SpotifyWrapperCS
 				MediaControls.IsNextEnabled = data[1][1] == '1';
 				MediaControls.IsPlayEnabled = MediaControls.IsPauseEnabled = data[1][2] == '1';
 				MediaControls.PlaybackStatus = data[1][3] == '1' ? MediaPlaybackStatus.Paused : MediaPlaybackStatus.Playing;
+			}
+			else if(data[0] == "RPTT")
+			{ // Požadavek na připnutí průhledné dlaždice
+				Debug.WriteLine("Request pin");
+				if (!SecondaryTile.Exists("transparentTile")){
+					SecondaryTile transparentTile = new SecondaryTile("transparentTile");
+					transparentTile.VisualElements.Square71x71Logo = new Uri("ms-appx:///Assets/TileSmall.png");
+					transparentTile.VisualElements.Square150x150Logo = new Uri("ms-appx:///Assets/TileMedium.png");
+					transparentTile.DisplayName = "Spotify";
+					transparentTile.VisualElements.ShowNameOnSquare150x150Logo = true;
+					transparentTile.VisualElements.BackgroundColor = Colors.Transparent;
+					transparentTile.Arguments = "/MainPage.xaml";
+					await transparentTile.RequestCreateAsync();
+				}
+				else
+				{
+					ContentDialog alreadyPinned = new ContentDialog
+					{
+						Title = "Already pinned",
+						Content = "Transparent tile is already pinned.",
+						CloseButtonText = "Ok"
+					};
+
+					await alreadyPinned.ShowAsync();
+				}
 			}
 		}
 	}

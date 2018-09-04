@@ -1,24 +1,19 @@
 html, body {
 	-ms-content-zooming: none;
-	overflow: hidden;
+	-ms-overflow-style: none;
 	min-width: 0px;
 }
 
-#main{
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
+._1YMukI_FrE7QRuUVSvq_Qe {
+	position: -ms-device-fixed;
 }
 
 /* Úprava menu (spodního) */
-.main-view-container{
+.main-view-container {
 	padding-left: 0px;
 }
 
-.nav-bar-container{
+.nav-bar-container {
 	width: 100%;
 	padding-bottom: 0px !important;
 	z-index: 100;
@@ -26,6 +21,7 @@ html, body {
 	height: 55px;
 	bottom: 0px;
 	top: auto;
+	position: -ms-device-fixed;
 }
 
 .navBar{
@@ -101,6 +97,19 @@ html, body {
 .sessionInfo .avatar.user-avatar{
 	width: 24px !important;
 	height: 24px !important;
+	background-image: none !important;
+}
+
+.sessionInfo .active-icon{
+	display: none;
+}
+
+.sessionInfo .is-active .active-icon {
+	display: block;
+}
+
+.sessionInfo .is-active .normal-icon {
+	display: none;
 }
 
 /* Úprava dialogu pøihlášení/registrace */
@@ -279,9 +288,16 @@ html, body {
 	transform: initial;
 }
 
-/* Obrázky (alb, umìlcù, podcastù, playlistù, ...) */
+.tracklist-row:focus .position, .tracklist-row:hover .position{
+	display: block;
+}
 
-.media-object{
+.tracklist-row:focus, .tracklist-row:hover{
+	background: transparent;
+}
+
+/* Obrázky (alb, umìlcù, podcastù, playlistù, ...) */
+.media-object {
 	padding-bottom: 1.5em;
 }
 
@@ -504,14 +520,17 @@ header.artist-header .monthly-listeners{
 .now-playing .track-info {
 	align-items: center;
 	padding-bottom: 8px;
+	width: 100%;
 }
 
 .now-playing .track-info__name{
 	font-size: 18px;
+	max-width: 100%;
 }
 
 .now-playing .track-info__artists {
 	font-size: 14px;
+	max-width: 100%;
 }
 
 .now-playing-bar__center{
@@ -559,6 +578,12 @@ header.artist-header .monthly-listeners{
 	margin: 8px 12px;
 }
 
+@media(min-width: 320px){
+	.now-playing-bar__center .control-button {
+		margin: 8px 16px;
+	}
+}
+
 .control-button--circled:hover{
 	transform: scale(1.45);
 }
@@ -579,6 +604,7 @@ header.artist-header .monthly-listeners{
 .compactPlayingBar .nowPlayingBar-container {
 	bottom: 55px !important;
 	height: auto;
+	position: -ms-device-fixed !important;
 }
 
 .compactPlayingBar .player-controls__buttons .control-button {
