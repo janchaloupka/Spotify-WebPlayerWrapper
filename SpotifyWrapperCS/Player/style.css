@@ -8,6 +8,27 @@ html, body {
 	position: -ms-device-fixed;
 }
 
+.ads-container {
+	transform: scale(0.5);
+	transform-origin: left top;
+	width: 200%;
+	top: 0px;
+	bottom: initial;
+	z-index: 9000;
+	position: -ms-device-fixed;
+}
+
+.ads-container, .ads-container *{
+	margin: 0px;
+	padding: 0px;
+}
+
+.compactPlayingBar .ads-container{
+	bottom: 103px;
+	top: initial;
+	transform-origin: left bottom;
+}
+
 /* Úprava menu (spodního) */
 .main-view-container {
 	padding-left: 0px;
@@ -112,8 +133,12 @@ html, body {
 	display: none;
 }
 
-/* Úprava dialogu pøihlášení/registrace */
+.accountPage-image{
+	width: 100px;
+	height: 100px;
+}
 
+/* Úprava dialogu pøihlášení/registrace */
 #login-method .step-inner {
 	margin: auto;
 	max-width: 100% !important;
@@ -451,6 +476,7 @@ header.artist-header .monthly-listeners{
 	bottom: 0px !important;
 	height: 100%;
 	display: flex;
+	position: -ms-device-fixed !important;
 }
 
 .now-playing-bar-container{
@@ -604,7 +630,6 @@ header.artist-header .monthly-listeners{
 .compactPlayingBar .nowPlayingBar-container {
 	bottom: 55px !important;
 	height: auto;
-	position: -ms-device-fixed !important;
 }
 
 .compactPlayingBar .player-controls__buttons .control-button {

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" IgnorableNamespaces="uap mp uap3">
-  <Identity Name="34659janch32.SpotifyWebWrapper" Publisher="CN=075C9BB6-03C5-4339-BE4D-ADD882DD153B" Version="1.1.9.0" />
+  <Identity Name="34659janch32.SpotifyWebWrapper" Publisher="CN=075C9BB6-03C5-4339-BE4D-ADD882DD153B" Version="1.1.11.0" />
   <mp:PhoneIdentity PhoneProductId="d0d0508a-0cbd-4a7c-9b5e-bad333ae7f70" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Spotify Web Wrapper</DisplayName>
@@ -16,10 +16,7 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="SpotifyWrapperCS.App">
       <uap:VisualElements DisplayName="Spotify Web Wrapper" Square150x150Logo="Assets\TileMedium.png" Square44x44Logo="Assets\Logo.png" Description="SpotifyWrapperCS" BackgroundColor="#1DB954">
-        <uap:DefaultTile ShortName="Spotify" Square71x71Logo="Assets\TileSmall.png">
-          <uap:ShowNameOnTiles>
-            <uap:ShowOn Tile="square150x150Logo" />
-          </uap:ShowNameOnTiles>
+        <uap:DefaultTile Square71x71Logo="Assets\TileSmall.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#1DB954" />
         <uap:InitialRotationPreference>

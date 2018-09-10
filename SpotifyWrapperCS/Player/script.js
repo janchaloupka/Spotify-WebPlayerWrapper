@@ -66,6 +66,16 @@ function InjectBasicLayout() {
 }
 InjectBasicLayout();
 
+var originalHistoryBack = history.back;
+
+history.back = function () {
+	if (document.getElementById("main").className == "") {
+		document.getElementById("main").className = "compactPlayingBar";
+	} else {
+		history.go(-1);
+	}
+}
+
 function InjectCustomLayout() {
 
 	var menuItemUser = document.createElement("li");
@@ -81,7 +91,7 @@ function InjectCustomLayout() {
 	expandPlayingBar.className = "expand-playing-bar";
 	expandPlayingBar.addEventListener("click", function () {
 		document.getElementById("main").className = "";
-		history.pushState(null, null, "#largecontrol");
+		//history.pushState(null, null, "#largecontrol");
 	});
 	document.getElementsByClassName("now-playing-bar")[0].appendChild(expandPlayingBar);
 
@@ -95,6 +105,15 @@ function InjectCustomLayout() {
 		<svg class="normal-icon" viewBox="0 0 512 512" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="m 256,184 c -39.8,0 -72,32.2 -72,72 0,39.8 32.2,72 72,72 39.8,0 72,-32.2 72,-72 0,-39.8 -32.2,-72 -72,-72 z m 0,122.66667 c -22.1,0 -50.66667,-28.56667 -50.66667,-50.66667 0,-22.1 28.56667,-50.66667 50.66667,-50.66667 22.1,0 50.66667,28.56667 50.66667,50.66667 0,22.1 -28.56667,50.66667 -50.66667,50.66667 z M 432,184 c -39.8,0 -72,32.2 -72,72 0,39.8 32.2,72 72,72 39.8,0 72,-32.2 72,-72 0,-39.8 -32.2,-72 -72,-72 z m 0,122.66667 c -22.1,0 -50.66667,-28.56667 -50.66667,-50.66667 0,-22.1 28.56667,-50.66667 50.66667,-50.66667 22.1,0 50.66667,28.56667 50.66667,50.66667 0,22.1 -28.56667,50.66667 -50.66667,50.66667 z M 80,184 c -39.8,0 -72,32.2 -72,72 0,39.8 32.2,72 72,72 39.8,0 72,-32.2 72,-72 0,-39.8 -32.2,-72 -72,-72 z m 0,122.66667 C 57.9,306.66667 29.333333,278.1 29.333333,256 29.333333,233.9 57.9,205.33333 80,205.33333 c 22.1,0 50.66667,28.56667 50.66667,50.66667 0,22.1 -28.56667,50.66667 -50.66667,50.66667 z"></path></svg>\
 		<svg class="active-icon" viewBox="0 0 512 512" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"></path></svg>\
 		</div>';
+
+	function checkUrlChange() {
+		if (location.pathname != lasturl) {
+			lasturl = location.pathname;
+			document.getElementById("main").className = "compactPlayingBar";
+		}
+	}
+
+	setInterval(checkUrlChange, 10000);
 }
 
 var pinTileButton = document.createElement("div");
@@ -109,8 +128,10 @@ function PopulateSettingsPage() {
 		document.querySelector(".accountPage-body .button-group").appendChild(pinTileButton);
 }
 
+var lasturl = location.pathname;
 function ReactToURLChange() {
-	if (document.location.hash.indexOf("largecontrol") < 0) {
+	if (location.pathname != lasturl) {
+		lasturl = location.pathname;
 		document.getElementById("main").className = "compactPlayingBar";
 	}
 

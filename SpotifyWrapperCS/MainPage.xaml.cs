@@ -73,7 +73,7 @@ namespace SpotifyWrapperCS
 
 			}
 
-		private void SystemNavigationManager_BackRequested(object sender, BackRequestedEventArgs e)
+		private async void SystemNavigationManager_BackRequested(object sender, BackRequestedEventArgs e)
 		{
 			if (WebPlayer.CanGoBack)
 			{
@@ -82,7 +82,8 @@ namespace SpotifyWrapperCS
 				if (WebPlayer.CanGoBack)
 				{
 					_isBackEvent = true;
-					WebPlayer.GoBack();
+					//WebPlayer.GoBack();
+					await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { WebPlayer.InvokeScriptAsync("eval", new string[] { "history.back();" }); });
 				}
 			}
 		}
@@ -105,38 +106,33 @@ namespace SpotifyWrapperCS
 
 		private void WebPlayer_NavigationStarting(WebView sender, WebViewNavigationStartingEventArgs args)
 		{
-			//Debug.WriteLine(args.Uri);
-			if (args.Uri.Host == "www.spotify.com" && !args.Uri.AbsolutePath.Contains("signup") && sender.Source.Host != "www.facebook.com")
-			{
-				args.Cancel = true;
+			Debug.WriteLine(args.Uri);
 
-				if(sender.Source.Host != "open.spotify.com")
-				{
-					LoadWebPlayer();
-				}
+			if (args.Uri.Host == "www.spotify.com" && args.Uri.AbsolutePath == "/"){
+				args.Cancel = true;
 			}
-			else if (!_desktopFlag && !_isBackEvent)
+
+			if (args.Uri.Host == "open.spotify.com" && !_desktopFlag && !_isBackEvent)
 			{
 				args.Cancel = true;
 				LoadAsDesktop(args.Uri);
+				return;
 			}
-			else
-			{
-				_desktopFlag = false;
-			}
+
+			_desktopFlag = false;
+			
 		}
 
 		bool _isBackEvent = false;
 		private async void WebPlayer_NavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs args)
 		{
-			Debug.WriteLine("Attempt: " + args.Uri.ToString());
 			if (!args.IsSuccess && args.WebErrorStatus == WebErrorStatus.NotFound)
 			{
 				ContentDialog noWifiDialog = new ContentDialog
 				{
 					Title = "Failed to load",
 					Content = "Check your connection and try again.",
-					CloseButtonText = "Close app"
+					PrimaryButtonText = "Close app"
 				};
 
 				noWifiDialog.Closed += NoWifiDialog_Closed;
@@ -188,8 +184,8 @@ namespace SpotifyWrapperCS
 					SecondaryTile transparentTile = new SecondaryTile("transparentTile");
 					transparentTile.VisualElements.Square71x71Logo = new Uri("ms-appx:///Assets/TileSmall.png");
 					transparentTile.VisualElements.Square150x150Logo = new Uri("ms-appx:///Assets/TileMedium.png");
-					transparentTile.DisplayName = "Spotify";
-					transparentTile.VisualElements.ShowNameOnSquare150x150Logo = true;
+					transparentTile.DisplayName = "";
+					transparentTile.VisualElements.ShowNameOnSquare150x150Logo = false;
 					transparentTile.VisualElements.BackgroundColor = Colors.Transparent;
 					transparentTile.Arguments = "/MainPage.xaml";
 					await transparentTile.RequestCreateAsync();
@@ -200,7 +196,7 @@ namespace SpotifyWrapperCS
 					{
 						Title = "Already pinned",
 						Content = "Transparent tile is already pinned.",
-						CloseButtonText = "Ok"
+						PrimaryButtonText = "Ok"
 					};
 
 					await alreadyPinned.ShowAsync();
