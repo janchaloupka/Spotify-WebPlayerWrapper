@@ -125,7 +125,7 @@ pinTileButton.addEventListener("click", function () {
 
 function PopulateSettingsPage() {
 	if(document.getElementsByClassName(".pintile-button").length == 0)
-		document.querySelector(".accountPage-body .button-group").appendChild(pinTileButton);
+		document.querySelector(".main-view-container .button-group--vertical").appendChild(pinTileButton);
 }
 
 var lasturl = location.pathname;
