@@ -124,8 +124,12 @@ pinTileButton.addEventListener("click", function () {
 });
 
 function PopulateSettingsPage() {
-	if(document.getElementsByClassName(".pintile-button").length == 0)
+	if (document.getElementsByClassName(".pintile-button").length == 0) {
+		var menuItem = document.querySelectorAll(".main-view-container .button-group--vertical .button-group__item");
+		menuItem[1].remove();
+		menuItem[2].remove();
 		document.querySelector(".main-view-container .button-group--vertical").appendChild(pinTileButton);
+	}
 }
 
 var lasturl = location.pathname;

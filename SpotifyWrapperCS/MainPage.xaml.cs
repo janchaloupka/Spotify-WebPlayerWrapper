@@ -33,6 +33,7 @@ namespace SpotifyWrapperCS
     {
 		SystemMediaTransportControls MediaControls;
 		SystemMediaTransportControlsDisplayUpdater MediaDisplayUpdater;
+		ContentDialog noWifiDialog;
 
 		public MainPage()
 		{
@@ -48,6 +49,15 @@ namespace SpotifyWrapperCS
 			MediaDisplayUpdater.Update();
 
 			LoadWebPlayer();
+
+			noWifiDialog = new ContentDialog
+			{
+				Title = "Failed to load",
+				Content = "Check your connection and try again.",
+				PrimaryButtonText = "Close app"
+			};
+
+			noWifiDialog.Closed += NoWifiDialog_Closed;
 		}
 
 		private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -127,15 +137,7 @@ namespace SpotifyWrapperCS
 		private async void WebPlayer_NavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs args)
 		{
 			if (!args.IsSuccess && args.WebErrorStatus == WebErrorStatus.NotFound)
-			{
-				ContentDialog noWifiDialog = new ContentDialog
-				{
-					Title = "Failed to load",
-					Content = "Check your connection and try again.",
-					PrimaryButtonText = "Close app"
-				};
-
-				noWifiDialog.Closed += NoWifiDialog_Closed;
+			{ 
 				ContentDialogResult result = await noWifiDialog.ShowAsync();
 			}
 			else
