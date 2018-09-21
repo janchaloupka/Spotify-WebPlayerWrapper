@@ -77,6 +77,8 @@ history.back = function () {
 }
 
 function InjectCustomLayout() {
+	// Hack, aby se pøi prvním kliknutí na tlaèítko zpìt pøi otevøeném pøehrávaèi nezavøela aplikace
+	history.pushState(null, "", "/browse/featured");
 
 	var menuItemUser = document.createElement("li");
 	menuItemUser.className = "navBar-group";
@@ -124,10 +126,13 @@ pinTileButton.addEventListener("click", function () {
 });
 
 function PopulateSettingsPage() {
-	if (document.getElementsByClassName(".pintile-button").length == 0) {
-		var menuItem = document.querySelectorAll(".main-view-container .button-group--vertical .button-group__item");
+	var menuItem = document.querySelectorAll(".main-view-container .button-group--vertical .button-group__item");
+	if (menuItem.length >= 4) {
 		menuItem[1].remove();
 		menuItem[2].remove();
+	}
+
+	if (document.getElementsByClassName(".pintile-button").length == 0) {
 		document.querySelector(".main-view-container .button-group--vertical").appendChild(pinTileButton);
 	}
 }

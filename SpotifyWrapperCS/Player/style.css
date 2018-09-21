@@ -4,6 +4,10 @@ html, body {
 	min-width: 0px;
 }
 
+.main-view-container > div > .contentSpacing{
+	padding-bottom: 120px;
+}
+
 ._1YMukI_FrE7QRuUVSvq_Qe {
 	position: -ms-device-fixed;
 }
@@ -193,14 +197,20 @@ html, body {
 	padding: 0 1em;
 }
 
+/*.main-view-container .asideButton button {
+	font-size: 15px;
+}
+
+.main-view-container .asideButton .btn-small {
+	padding: 11px 44px;
+}*/
+
 .main-view-container .asideButton{
 	display: none;
 }
 
 /* Vyhledávání */
-
-
-.inputBox{
+.inputBox {
 	padding: 12px 0px;
 }
 
@@ -213,8 +223,12 @@ html, body {
 	line-height: 32px;
 }
 
+.EmptySearch__subtitle{
+	text-align: center;
+}
+
 /* Skrýt menu u vyhledávání */
-.main-view-container > .hw-accelerate > section > div:nth-of-type(2) > nav ul, .artist nav ul{
+.main-view-container > .hw-accelerate > section > div:nth-of-type(2) > nav ul, .artist nav ul {
 	overflow: auto;
 	flex-flow: row;
 	align-items: center;
