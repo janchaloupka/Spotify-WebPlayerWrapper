@@ -1,35 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.Core;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Media;
-using Windows.Media.Playback;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using Windows.Web.Http;
 using Windows.UI.StartScreen;
 using Windows.UI;
 using Windows.Web;
-
-// Dokumentaci k šabloně položky Prázdná stránka najdete na adrese https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x405
+using Windows.Foundation.Metadata;
+using Windows.UI.ViewManagement;
 
 namespace SpotifyWrapperCS
 {
-	/// <summary>
-    /// Prázdná stránka, která se dá použít samostatně nebo v rámci objektu Frame
-    /// </summary>
-    public sealed partial class MainPage : Page
+	 public sealed partial class MainPage : Page
     {
 		SystemMediaTransportControls MediaControls;
 		SystemMediaTransportControlsDisplayUpdater MediaDisplayUpdater;
@@ -48,6 +34,7 @@ namespace SpotifyWrapperCS
 			MediaDisplayUpdater.Type = MediaPlaybackType.Music;
 			MediaDisplayUpdater.Update();
 
+			// Main function to load web player
 			LoadWebPlayer();
 
 			noWifiDialog = new ContentDialog
@@ -58,13 +45,26 @@ namespace SpotifyWrapperCS
 			};
 
 			noWifiDialog.Closed += NoWifiDialog_Closed;
+
+			// Make StatusBar transparent 
+			if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+			{
+				StatusBar.GetForCurrentView().BackgroundOpacity = 0;
+				ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
+
+				TopPage.Height = ApplicationView.GetForCurrentView().VisibleBounds.Bottom;
+				TopPage.VerticalAlignment = VerticalAlignment.Top;
+				ApplicationView.GetForCurrentView().VisibleBoundsChanged += MainPage_VisibleBoundsChanged;
+			}
 		}
 
-		private void Page_Loaded(object sender, RoutedEventArgs e)
+		// Resize app on screen size change
+		private void MainPage_VisibleBoundsChanged(ApplicationView sender, object args)
 		{
-			
+			TopPage.Height = ApplicationView.GetForCurrentView().VisibleBounds.Bottom;
 		}
 
+		// Send media buttons input to the web player
 		private async void MediaControls_ButtonPressed(SystemMediaTransportControls sender, SystemMediaTransportControlsButtonPressedEventArgs args)
 		{
 			switch (args.Button)
@@ -83,6 +83,7 @@ namespace SpotifyWrapperCS
 
 			}
 
+		// Back button event
 		private async void SystemNavigationManager_BackRequested(object sender, BackRequestedEventArgs e)
 		{
 			if (WebPlayer.CanGoBack)
@@ -100,9 +101,11 @@ namespace SpotifyWrapperCS
 
 		private void LoadWebPlayer()
 		{
-			LoadAsDesktop(new Uri("https://open.spotify.com/browse/featured"));
+			// Load signup page, if user is already logged the page will automatically redirect to the player
+			LoadAsDesktop(new Uri("https://accounts.spotify.com/en/login/?continue=https:%2F%2Fopen.spotify.com"));
 		}
 
+		// Changes user-agent to desktop msedge
 		private bool _desktopFlag = false;
 		private void LoadAsDesktop(Uri original)
 		{
@@ -122,6 +125,7 @@ namespace SpotifyWrapperCS
 				args.Cancel = true;
 			}
 
+			// If webview is trying to load open.spotify.com change user agent to desktop browser
 			if (args.Uri.Host == "open.spotify.com" && !_desktopFlag && !_isBackEvent)
 			{
 				args.Cancel = true;
@@ -142,16 +146,18 @@ namespace SpotifyWrapperCS
 			}
 			else
 			{
+				// Hide splash screen
 				ExtendedSplashScreen.Visibility = Visibility.Collapsed;
 				try
 				{
 					if (!_isBackEvent && sender.Source.Host == "open.spotify.com")
+						// Inject custon script file
 						await sender.InvokeScriptAsync("eval", new string[] { File.ReadAllText("Player/script.js") });
 					_isBackEvent = false;
 				}
 				catch (Exception)
 				{
-					// TODO catch
+					// TO-never-DO catch
 				}
 			}
 
@@ -163,24 +169,25 @@ namespace SpotifyWrapperCS
 			CoreApplication.Exit();
 		}
 
+		// Receive control messages from web player
 		private async void WebPlayer_ScriptNotify(object sender, NotifyEventArgs e)
 		{
 			string[] data = e.Value.Split('\n');
 			if(data[0] == "SMCI")
-			{ // Informace o songu
+			{ // Song info
 				MediaDisplayUpdater.MusicProperties.Title = data[1];
 				MediaDisplayUpdater.MusicProperties.Artist = data[2];
 				MediaDisplayUpdater.Update();
 			}
 			else if(data[0] == "SMCB")
-			{ // Infomace o ovládacích prvcích
+			{ // Media control buttons change
 				MediaControls.IsPreviousEnabled = data[1][0] == '1';
 				MediaControls.IsNextEnabled = data[1][1] == '1';
 				MediaControls.IsPlayEnabled = MediaControls.IsPauseEnabled = data[1][2] == '1';
 				MediaControls.PlaybackStatus = data[1][3] == '1' ? MediaPlaybackStatus.Paused : MediaPlaybackStatus.Playing;
 			}
 			else if(data[0] == "RPTT")
-			{ // Požadavek na připnutí průhledné dlaždice
+			{ // Transparent tile pin request
 				Debug.WriteLine("Request pin");
 				if (!SecondaryTile.Exists("transparentTile")){
 					SecondaryTile transparentTile = new SecondaryTile("transparentTile");
@@ -193,7 +200,7 @@ namespace SpotifyWrapperCS
 					await transparentTile.RequestCreateAsync();
 				}
 				else
-				{
+				{ // Tranpsarent tile is already pinned
 					ContentDialog alreadyPinned = new ContentDialog
 					{
 						Title = "Already pinned",

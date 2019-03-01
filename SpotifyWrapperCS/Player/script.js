@@ -1,5 +1,5 @@
+// Receive media button event
 function SystemMediaControlEvent(type) {
-	//console.log("MediaEvent: " + type);
 	if (type == "play") {
 		document.querySelector(".player-controls .control-button--circled").click();
 	} else if (type == "prev") {
@@ -11,7 +11,7 @@ function SystemMediaControlEvent(type) {
 	setTimeout(UpdateSystemMediaControl, 500);
 }
 
-
+// Send information about buttons state and current song to the main control
 var UpdateSystemMediaControl;
 function InjectSystemMediaControl() {
 	var previousTrackName = "";
@@ -35,6 +35,8 @@ function InjectSystemMediaControl() {
 			external.notify("SMCB\n" + canSkipBack + canSkipForward + canPlayPause + isPaused);
 
 			if (firstTime) {
+				// Workaround to play silence if song is playing over spotify connect on different device
+				// Didn't work reliably, so I disabpled this code
 				/*var audio = new Audio("ms-appx-web:///Player/silence.mp3");
 				audio.play();*/
 				firstTime = false;
@@ -44,9 +46,11 @@ function InjectSystemMediaControl() {
 		}
 	};
 
+	// Refresh info every two seconds
 	setInterval(UpdateSystemMediaControl, 2000);
 }
 
+// Apply custom css
 function InjectBasicLayout() {
 	try {
 		var metaViewport = document.createElement("meta");
@@ -59,15 +63,18 @@ function InjectBasicLayout() {
 		customStyle.href = "ms-appx-web:///Player/style.css";
 		document.head.appendChild(customStyle);
 
+		// I don't know why is this line of code here
 		document.getElementById("signup-spotify").addEventListener("click", function () {
-			location.href = "https://www.spotify.com/signup/?forward_url=https%3A%2F%2Fopen.spotify.com%2Fbrowse%2Ffeatured";
+			location.href = "https://www.spotify.com/signup/?forward_url=https%3A%2F%2Fopen.spotify.com";
 		});
-	} catch (e) {}
+	} catch (e) {
+		// TODO - handle layout injection error
+	}
 }
 InjectBasicLayout();
 
+// Modify back function so it works with expanding player bar
 var originalHistoryBack = history.back;
-
 history.back = function () {
 	if (document.getElementById("main").className == "") {
 		document.getElementById("main").className = "compactPlayingBar";
@@ -77,16 +84,18 @@ history.back = function () {
 }
 
 function InjectCustomLayout() {
-	// Hack, aby se pøi prvním kliknutí na tlaèítko zpìt pøi otevøeném pøehrávaèi nezavøela aplikace
+	// Ugly hack - prevents application closing when user click on the back button when player is expanded
 	history.pushState(null, "", "/browse/featured");
 
+	// Add user section to the menu
 	var menuItemUser = document.createElement("li");
 	menuItemUser.className = "navBar-group";
 	menuItemUser.appendChild(document.getElementsByClassName("sessionInfo")[0]);
 	document.querySelector(".navBar ul").appendChild(menuItemUser);
 
-	document.querySelector("#main > .root").appendChild(document.getElementsByClassName("nav-bar-container")[0]);
+	//document.querySelector("#main > .root").appendChild(document.getElementsByClassName("nav-bar-container")[0]);
 
+	// Start with compactPlayBar
 	document.getElementById("main").className = "compactPlayingBar";
 
 	var expandPlayingBar = document.createElement("div");
@@ -99,8 +108,8 @@ function InjectCustomLayout() {
 
 	window.addEventListener("click", ReactToURLChange);
 	window.addEventListener("popstate", ReactToURLChange);
-
 	document.querySelector(".sessionInfo a").addEventListener("click", ReactToURLChange);
+
 
 	document.querySelector(".user-widget .user-link").innerHTML = "More";
 	document.querySelector(".user-widget .user-avatar").innerHTML = '<div class="icon">\
@@ -108,16 +117,17 @@ function InjectCustomLayout() {
 		<svg class="active-icon" viewBox="0 0 512 512" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"></path></svg>\
 		</div>';
 
+	// Fallback checks every 10s if url has changed
 	function checkUrlChange() {
 		if (location.pathname != lasturl) {
 			lasturl = location.pathname;
 			document.getElementById("main").className = "compactPlayingBar";
 		}
 	}
-
 	setInterval(checkUrlChange, 10000);
 }
 
+// Pin tile button used on the user page
 var pinTileButton = document.createElement("div");
 pinTileButton.className = "button-group__item";
 pinTileButton.innerHTML = '<button class="btn btn-black btn-small pintile-button" style="min-width: 240px;">PIN TRANSPARENT TILE</button>';
@@ -125,6 +135,7 @@ pinTileButton.addEventListener("click", function () {
 	external.notify("RPTT");
 });
 
+// Modify user (settings) page
 function PopulateSettingsPage() {
 	var menuItem = document.querySelectorAll(".main-view-container .button-group--vertical .button-group__item");
 	if (menuItem.length >= 4) {
@@ -149,6 +160,7 @@ function ReactToURLChange() {
 	}
 }
 
+// Wait for the page to fully load ( check for user info - it's the last element, that is loaded )
 function WaitForLoad() {
 	if (document.getElementsByClassName("sessionInfo").length == 0)
 		window.requestAnimationFrame(WaitForLoad);
@@ -157,6 +169,7 @@ function WaitForLoad() {
 }
 WaitForLoad();
 
+// Wait until media controls are loaded
 function WaitForMediaBar() {
 	if (document.getElementsByClassName("now-playing").legnth == 0)
 		window.requestAnimationFrame(WaitForMediaBar);
