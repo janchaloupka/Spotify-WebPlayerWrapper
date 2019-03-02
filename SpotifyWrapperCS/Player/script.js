@@ -89,11 +89,11 @@ function InjectCustomLayout() {
 
 	// Add user section to the menu
 	var menuItemUser = document.createElement("li");
-	menuItemUser.className = "navBar-group";
+	menuItemUser.className = "navBar";
 	menuItemUser.appendChild(document.getElementsByClassName("sessionInfo")[0]);
 	document.querySelector(".navBar ul").appendChild(menuItemUser);
 
-	//document.querySelector("#main > .root").appendChild(document.getElementsByClassName("nav-bar-container")[0]);
+    document.querySelector("#main > .Root").appendChild(document.getElementsByClassName("Root__nav-bar")[0]);
 
 	// Start with compactPlayBar
 	document.getElementById("main").className = "compactPlayingBar";
@@ -104,7 +104,7 @@ function InjectCustomLayout() {
 		document.getElementById("main").className = "";
 		//history.pushState(null, null, "#largecontrol");
 	});
-	document.getElementsByClassName("now-playing-bar")[0].appendChild(expandPlayingBar);
+    document.getElementsByClassName("Root__now-playing-bar")[0].appendChild(expandPlayingBar);
 
 	window.addEventListener("click", ReactToURLChange);
 	window.addEventListener("popstate", ReactToURLChange);
@@ -137,14 +137,14 @@ pinTileButton.addEventListener("click", function () {
 
 // Modify user (settings) page
 function PopulateSettingsPage() {
-	var menuItem = document.querySelectorAll(".main-view-container .button-group--vertical .button-group__item");
+    var menuItem = document.querySelectorAll(".main-view-container__content .button-group--vertical .button-group__item");
 	if (menuItem.length >= 4) {
 		menuItem[1].remove();
 		menuItem[2].remove();
 	}
 
 	if (document.getElementsByClassName(".pintile-button").length == 0) {
-		document.querySelector(".main-view-container .button-group--vertical").appendChild(pinTileButton);
+        document.querySelector(".main-view-container__content .button-group--vertical").appendChild(pinTileButton);
 	}
 }
 
@@ -162,8 +162,11 @@ function ReactToURLChange() {
 
 // Wait for the page to fully load ( check for user info - it's the last element, that is loaded )
 function WaitForLoad() {
-	if (document.getElementsByClassName("sessionInfo").length == 0)
-		window.requestAnimationFrame(WaitForLoad);
+    if (document.getElementsByClassName("sessionInfo").length == 0) {
+        // Use compact player when not signed in
+        document.getElementById("main").className = "compactPlayingBar";
+        window.requestAnimationFrame(WaitForLoad);
+    }
 	else
 		InjectCustomLayout();
 }
