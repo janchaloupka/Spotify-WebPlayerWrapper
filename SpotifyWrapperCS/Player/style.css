@@ -1,13 +1,35 @@
+:root {
+	--status-bar-height: 20px;
+}
+
 html, body {
 	-ms-content-zooming: none;
 	-ms-overflow-style: none;
 	min-width: 0;
 }
 
+/* Prevent fixed elements from scrolling */
+.SearchInputBox, ._1YMukI_FrE7QRuUVSvq_Qe, .Root__nav-bar, .Root__now-playing-bar, .Root__ads-container {
+	position: -ms-device-fixed;
+}
+
+.amoledDarkMode ._1YMukI_FrE7QRuUVSvq_Qe{
+	background-image: none !important;
+	background-color: black;
+}
+
+/* Prevent rubber band scrolling */
+/*body > .main{
+	left: 0px;
+	top: 0px;
+	width: 100vw;
+	height: 100vh;
+	overflow: auto;
+}*/
 /* Signup Banner */
 ._2xTC2WcXRpmoZBliqieiS9 {
-    z-index: 1;
-    position: relative;
+	z-index: 1;
+	position: relative;
 }
 
 /* Cookie Policy Banner */
@@ -22,15 +44,14 @@ html, body {
     transform-origin: left top;
 }
 
-.Root__ads-container {
+/*.Root__ads-container {
     transform: scale(0.5);
     transform-origin: left top;
     width: 200%;
     top: 0;
     bottom: initial;
     z-index: 9000;
-    position: -ms-device-fixed;
-}
+}*/
 
 .ads-container, .ads-container *{
 	margin: 0;
@@ -56,12 +77,12 @@ html, body {
     height: 56px;
     bottom: 0;
     top: auto;
-    position: -ms-device-fixed;
 }
 
 .navBar {
     padding: 0 !important;
     width: 100%;
+	overflow: hidden;
     flex-flow: row;
 }
 
@@ -89,14 +110,14 @@ html, body {
     height: 100%;
 }
 
-    .navBar ul > li {
-        margin: 0 auto;
-        /* min-width: 20%; */
-        display: flex;
-        align-items: center;
-        width: 25%;
-        justify-content: center;
-    }
+.navBar ul > li {
+    margin: 0 auto;
+    /* min-width: 20%; */
+    display: flex;
+    align-items: center;
+    width: 25%;
+    justify-content: center;
+}
 
 .navBar ul > li:nth-of-type(2){
 	order: 0;
@@ -179,14 +200,21 @@ html, body {
 }
 
 /* Basic Page Elements */
+
+.container-fluid{
+	padding-left: 0;
+	padding-right: 0;
+}
+
 .main-view-container__content h1 {
-    font-size: 20px !important;
-    line-height: 35px !important;
+	font-size: 20px !important;
+	line-height: 35px !important;
 }
 
 .main-view-container__content nav {
     padding: 10px 0 !important;
-    border-bottom: 1px solid hsla(0, 0%, 100%, 0.4);
+    padding-top: calc(10px + var(--status-bar-height)) !important;
+	border-bottom: 1px solid hsla(0, 0%, 100%, 0.4);
     padding-bottom: 15px !important;
     /*padding: 10px;*/
 }
@@ -231,7 +259,8 @@ html, body {
 .SearchInputBox {
     margin-left: -80px;
     width: 100vw;
-    height: 50px;
+    height: calc(50px + var(--status-bar-height));
+	padding-top: calc(16px + var(--status-bar-height));
 }
 
 .SearchInputBox__input {
@@ -244,8 +273,8 @@ html, body {
 	text-align: center;
 }
 
-.Search__content{
-	padding-top: 50px;
+.Search__content {
+	padding-top: calc(50px + var(--status-bar-height));
 }
 
 /* Search Result Styling */
@@ -325,10 +354,11 @@ html, body {
 	z-index: 10;
 }
 
-.tracklist-col.position-outer{
-	padding-right:0;
+.tracklist-col.position-outer {
+	display: none;
+	/*padding-right: 0;
 	text-align: left;
-	width: 2em;
+	width: 2em;*/
 }
 
 .tracklist-row .tracklist-play-pause *{
@@ -341,13 +371,14 @@ html, body {
 
 .tracklist-col.more{
 	display: block;
-	padding-right:0;
+	padding-right: 0 !important;
 	position: relative;
 	z-index: 20;
+	min-width: 0 !important;
 }
 
 .tracklist-col-duration{
-	padding-right:0;
+	padding-right: 2px !important;
 	width: 3em;
 }
 
@@ -451,7 +482,8 @@ html, body {
     .TrackListHeader .TrackListHeader__body .horizontal-list, .header-buttons .react-contextmenu-wrapper {
         position: absolute;
         right: 0;
-        top: 0;
+        top: var(--status-bar-height);
+		margin: 0 !important;
     }
 
 .TrackListHeader .media-object button.cover-art-playback {
@@ -518,10 +550,11 @@ header.artist-header .monthly-listeners{
 	margin: 0;
 	position: absolute;
 	right: 0;
-	top: 0;
+	top: var(--status-bar-height);
 	min-width: initial;
 	width: auto !important;
 	transform: scale(0.7);
+	z-index: 1000000;
 }
 
 .dialog h1{
@@ -597,17 +630,25 @@ header.artist-header .monthly-listeners{
 
 .now-playing-bar__left {
 	width: 100%;
-	height: 100%;
+	/*height: 100%;*/
+	flex-grow: 1;
+	display: flex;
 }
 
 .now-playing{
 	flex-flow: column;
 	height: 100%;
+	flex-grow: 1;
 }
 
 .now-playing > span{
 	margin: auto;
 	position: relative;
+	padding-top: var(--status-bar-height);
+}
+
+.compactPlayingBar .now-playing > span {
+	padding-top: 0px;
 }
 
 .now-playing > button {

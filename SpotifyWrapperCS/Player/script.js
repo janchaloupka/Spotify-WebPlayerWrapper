@@ -84,6 +84,8 @@ history.back = function () {
 }
 
 function InjectCustomLayout() {
+	applyDarkMode();
+
 	// Ugly hack - prevents application closing when user click on the back button when player is expanded
 	history.pushState(null, "", "/browse/featured");
 
@@ -135,16 +137,39 @@ pinTileButton.addEventListener("click", function () {
 	external.notify("RPTT");
 });
 
+// Toggle dark AMOLED mode button
+var darkModeButton = document.createElement("div");
+darkModeButton.className = "button-group__item";
+darkModeButton.innerHTML = '<button class="btn btn-black btn-small darkmode-button" style="min-width: 240px;">TOGGLE AMOLED DARK MODE</button>';
+darkModeButton.addEventListener("click", function () {
+	if (localStorage.getItem("amoledDarkMode"))
+		localStorage.removeItem("amoledDarkMode");
+	else
+		localStorage.setItem("amoledDarkMode", "true");
+
+	applyDarkMode();
+});
+
+function applyDarkMode() {
+	if (localStorage.getItem("amoledDarkMode")) {
+		document.body.className += " amoledDarkMode";
+	} else {
+		document.body.className = document.body.className.replace("amoledDarkMode", "");
+	}
+}
+
 // Modify user (settings) page
 function PopulateSettingsPage() {
     var menuItem = document.querySelectorAll(".main-view-container__content .button-group--vertical .button-group__item");
 	if (menuItem.length >= 4) {
+		menuItem[0].remove();
 		menuItem[1].remove();
 		menuItem[2].remove();
 	}
 
 	if (document.getElementsByClassName(".pintile-button").length == 0) {
         document.querySelector(".main-view-container__content .button-group--vertical").appendChild(pinTileButton);
+        document.querySelector(".main-view-container__content .button-group--vertical").appendChild(darkModeButton);
 	}
 }
 
