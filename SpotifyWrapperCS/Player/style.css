@@ -1,50 +1,35 @@
-:root{
-	--status-bar-height: 20px;
-}
-
 html, body {
 	-ms-content-zooming: none;
 	-ms-overflow-style: none;
 	min-width: 0;
 }
 
-.main-view-container {
-	/*padding-bottom: 120px;*/
-	padding-top: var(--status-bar-height);
+/* Signup Banner */
+._2xTC2WcXRpmoZBliqieiS9 {
+    z-index: 1;
+    position: relative;
 }
 
-._1YMukI_FrE7QRuUVSvq_Qe {
-	position: -ms-device-fixed;
-	display: none;
+/* Cookie Policy Banner */
+.ITVPJxOvtLt7upeE1TV9- {
+    top: auto;
+    height: auto;
 }
 
-.HeaderedGrid__header{
-	flex-flow: column;
-	align-items: flex-start;
-	padding-bottom: 24px;
+/* Signup and Login Window */
+._3k6GlFSWMzUXKRdDQwLoCs {
+    transform: scale(0.84);
+    transform-origin: left top;
 }
 
-.HeaderedGrid__header h1 {
-	margin-bottom: 8px;
-}
-
-._1Fj-rlIZXTSNgYOCuLh7xo{
-	text-align: center !important;
-}
-
-.akh8GUlQiyVVqyYbwYzyr{
-	width: 150px !important;
-	height: 150px !important;
-}
-
-.ads-container {
-	transform: scale(0.5);
-	transform-origin: left top;
-	width: 200%;
-	top: 0;
-	bottom: initial;
-	z-index: 9000;
-	position: -ms-device-fixed;
+.Root__ads-container {
+    transform: scale(0.5);
+    transform-origin: left top;
+    width: 200%;
+    top: 0;
+    bottom: initial;
+    z-index: 9000;
+    position: -ms-device-fixed;
 }
 
 .ads-container, .ads-container *{
@@ -58,34 +43,36 @@ html, body {
 	transform-origin: left bottom;
 }
 
-/* Úprava menu (spodního) */
-.main-view-container {
-	padding-left: 0;
+/* Menu (Bottom) */
+.Root__main-view {
+    padding-left: 0 !important;
 }
 
-.nav-bar-container {
-	width: 100%;
-	padding-bottom: 0 !important;
-	z-index: 100;
-	background: black;
-	height: 55px;
-	bottom: 0;
-	top: auto;
-	position: -ms-device-fixed;
+.Root__nav-bar {
+    width: 100%;
+    padding-bottom: 0 !important;
+    z-index: 100;
+    background: black;
+    height: 56px;
+    bottom: 0;
+    top: auto;
+    position: -ms-device-fixed;
 }
 
-.navBar{
-	padding: 0 !important;
-	width: 100% !important;
+.navBar {
+    padding: 0 !important;
+    width: 100%;
+    flex-flow: row;
 }
 
 .navBar > div:nth-of-type(2){
 	display: none;
 }
 
-.sessionInfo{
-	padding: 0 !important;
-	border-top: none;
+.sessionInfo {
+    padding: 0 !important;
+    border-top: none;
+    margin: 0 !important;
 }
 
 .navBar .recently-played{
@@ -96,18 +83,23 @@ html, body {
 	display: none;
 }
 
-.navBar ul{
-	display: flex;
-	flex-flow: row;
+.navBar ul {
+    display: flex;
+    flex-flow: row;
+    height: 100%;
 }
 
-.navBar ul > li{
-	margin: 0 auto;
-	min-width: 20%;
-}
+    .navBar ul > li {
+        margin: 0 auto;
+        /* min-width: 20%; */
+        display: flex;
+        align-items: center;
+        width: 25%;
+        justify-content: center;
+    }
 
 .navBar ul > li:nth-of-type(2){
-	order: -1;
+	order: 0;
 }
 
 .navBar-item--with-icon-left{
@@ -115,15 +107,15 @@ html, body {
 	padding-bottom: 3px;
 }
 
-.navbar-link__text, .sessionInfo .user-link {
-	position: initial;
-	font-size: 10px !important;
-	width: initial;
-	height: initial;
-	margin: 0 !important;
-	line-height: initial !important;
-	letter-spacing: initial !important;
-	font-weight: 600 !important;
+.navbar-link__text, .sessionInfo .user-link, .UserWidget__user-link {
+    position: initial;
+    font-size: 10px !important;
+    width: initial;
+    height: initial;
+    margin: 0 !important;
+    line-height: initial !important;
+    letter-spacing: initial !important;
+    font-weight: 600 !important;
 }
 
 .navBar-link, .sessionInfo a{
@@ -142,7 +134,7 @@ html, body {
 }
 
 .user-widget{
-	margin: 0;
+	margin:0;
 }
 
 .sessionInfo .avatar.user-avatar{
@@ -168,7 +160,7 @@ html, body {
 	height: 100px;
 }
 
-/* Úprava dialogu pøihlášení/registrace */
+/* Login/Registration Dialogue */
 #login-method .step-inner {
 	margin: auto;
 	max-width: 100% !important;
@@ -186,38 +178,38 @@ html, body {
 	width: 100% !important;
 }
 
-/* Úprava základních prvkù stránky */
-.main-view-container h1 {
-	font-size: 20px !important;
-	line-height: 35px !important;
+/* Basic Page Elements */
+.main-view-container__content h1 {
+    font-size: 20px !important;
+    line-height: 35px !important;
 }
 
-.main-view-container nav {
-	padding: 10px 0 !important;
-	border-bottom: 1px solid hsla(0, 0%, 100%, 0.4);
-	padding-bottom: 15px !important;
-	/*padding: 10px;*/
+.main-view-container__content nav {
+    padding: 10px 0 !important;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.4);
+    padding-bottom: 15px !important;
+    /*padding: 10px;*/
 }
 
-.main-view-container nav ul {
-	display: flex !important;
-	flex-flow: column;
-}
+    .main-view-container__content nav ul {
+        display: flex !important;
+        flex-flow: column;
+    }
 
-.main-view-container nav ul li {
-	text-align: left !important;
-}
+        .main-view-container__content nav ul li {
+            text-align: left !important;
+        }
 
-.main-view-container nav ul li a{
-	font-size: 15px !important;
-	margin: 0.4em 0.8em !important;
-}
+            .main-view-container__content nav ul li a {
+                font-size: 15px !important;
+                margin: 0.4em 0.8em !important;
+            }
 
-.main-view-container nav ul li a::before {
-	height: 30px !important;
-	width: 3px !important;
-	left: 10px !important;
-}
+                .main-view-container__content nav ul li a::before {
+                    height: 30px !important;
+                    width: 3px !important;
+                    left: 10px !important;
+                }
 
 .contentSpacing{
 	padding: 0 1em;
@@ -231,24 +223,21 @@ html, body {
 	padding: 11px 44px;
 }*/
 
-.main-view-container .asideButton{
-	display: none;
+.main-view-container__content .asideButton {
+    display: none;
 }
 
-/* Vyhledávání */
+/* Search */
 .SearchInputBox {
-	padding: 12px 0;
-	left: 0;
-	padding-top: 25px;
-}
-
-.inputBox-label{
-	display: none;
+    margin-left: -80px;
+    width: 100vw;
+    height: 50px;
 }
 
 .SearchInputBox__input {
-	font-size: 20px;
-	line-height: 32px;
+    font-size: 20px;
+    line-height: 32px;
+    margin-top: -8px;
 }
 
 .Search__content--empty {
@@ -259,58 +248,65 @@ html, body {
 	padding-top: 50px;
 }
 
-/* Skrýt menu u vyhledávání */
-.main-view-container > section > div:nth-of-type(2) > nav ul, .artist nav ul {
-	overflow: auto;
-	flex-flow: row;
-	align-items: center;
-	-ms-overflow-style: none;
+/* Search Result Styling */
+.main-view-container__content > section > div:nth-of-type(2) > nav ul, .artist nav ul {
+    overflow: auto;
+    flex-flow: row;
+    align-items: center;
+    padding-top: 9px;
+    height: 50px;
+    -ms-overflow-style: none;
 }
 
-.main-view-container > section > div:nth-of-type(2) > nav, .artist nav {
-	padding: 0 !important;
-	padding-bottom: 8px !important;
-	margin-bottom: 12px !important;
-	border-bottom: 1px solid hsla(0, 0%, 100%, 0.2);
-	position: relative;
-	/*background: hsl(0,0%,7%);*/
+.main-view-container__content > section > div:nth-of-type(2) > nav, .artist nav {
+    padding:0 !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 12px !important;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.2);
+    position: relative;
+    /*background: hsl(0,0%,7%);*/
 }
 
-.main-view-container > section > div:nth-of-type(2) > nav::before,
-.main-view-container > section > div:nth-of-type(2) > nav::after,
-.artist nav::before, .artist nav::After {
-	content: '';
-	position: absolute;
-	height: 100%;
-	width: 15px;
-	left: 0;
-	top: 0;
-	z-index: 50;
-	box-shadow: inset 15px 0 10px -3px hsl(0, 0%, 7%);
+    .main-view-container__content > section > div:nth-of-type(2) > nav::before,
+    .main-view-container__content > section > div:nth-of-type(2) > nav::after,
+    .artist nav::before, .artist nav::After {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 15px;
+        left:0;
+        top:0;
+        z-index: 50;
+        box-shadow: inset 15px 0 10px -3px hsl(0, 0%, 7%);
+    }
+
+    .main-view-container__content > section > div:nth-of-type(2) > nav::after, .artist nav::after {
+        right:0;
+        left: auto;
+        box-shadow: inset -15px 0 10px -3px hsl(0, 0%, 7%);
+    }
+
+    .main-view-container__content > section > div:nth-of-type(2) > nav ul li, .artist nav ul li {
+        text-align: center !important;
+    }
+
+        .main-view-container__content > section > div:nth-of-type(2) > nav ul li a::before, .artist nav ul li a::before {
+            height: 2px !important;
+            width: 50px !important;
+            left: 50% !important;
+            margin-left: -25px !important;
+        }
+
+.main-view-container__content > section > div:nth-of-type(2) > .contentSpacing > .container-fluid.container-fluid--noSpaceAround > .row:first-of-type > .top-artist {
+    display: none;
 }
 
-.main-view-container > section > div:nth-of-type(2) > nav::after, .artist nav::after{
-	right: 0;
-	left: auto;
-	box-shadow: inset -15px 0 10px -3px hsl(0, 0%, 7%);
+/* Tracklist  */
+.row {
+    margin-left:0;
+    margin-right:0;
 }
 
-.main-view-container > section > div:nth-of-type(2) > nav ul li, .artist nav ul li {
-	text-align: center !important;
-}
-
-.main-view-container > section > div:nth-of-type(2) > nav ul li a::before, .artist nav ul li a::before{
-	height: 2px !important;
-	width: 50px !important;
-	left: 50% !important;
-	margin-left: -25px !important;
-}
-
-.main-view-container > section > div:nth-of-type(2) > .contentSpacing > .container-fluid.container-fluid--noSpaceAround > .row:first-of-type > .top-artist {
-	display: none;
-}
-
-/* Skladba v seznamu  */
 .tracklist-row{
 	position: relative;
 }
@@ -322,15 +318,15 @@ html, body {
 .tracklist-row .tracklist-play-pause {
 	display: block;
 	position: absolute;
-	left: 0;
-	top: 0;
+	left:0;
+	top:0;
 	width: 100%;
 	height: 100%;
 	z-index: 10;
 }
 
 .tracklist-col.position-outer{
-	padding-right: 0;
+	padding-right:0;
 	text-align: left;
 	width: 2em;
 }
@@ -345,13 +341,13 @@ html, body {
 
 .tracklist-col.more{
 	display: block;
-	padding-right: 0;
+	padding-right:0;
 	position: relative;
 	z-index: 20;
 }
 
 .tracklist-col-duration{
-	padding-right: 0;
+	padding-right:0;
 	width: 3em;
 }
 
@@ -372,14 +368,14 @@ html, body {
 	background: transparent;
 }
 
-/* Obrázky (alb, umìlcù, podcastù, playlistù, ...) */
+/* Pictures (albums, artists, podcasts, playlists, ...) */
 .media-object {
 	padding-bottom: 1.5em;
 }
 
 .view-more-button .btn{
-	margin-top: 0;
-	padding-top: 0;
+	margin-top:0;
+	padding-top:0;
 	padding: 5px;
 }
 
@@ -387,88 +383,109 @@ html, body {
 	padding-bottom: 10px;
 }
 
-/* Playlist, Alba, Podcasty, Daily mixy */
+/* Playlist, Albums, Podcasts, Daily Mixes */
 
-.content.playlist, .content.album, .content.show-page, .content{
-	padding-top: 0;
+.content.playlist, .content.album, .content.show-page, .content, .EpisodePage {
+	padding-top:0;
 }
 
-header .entity-info{
-	flex-flow: column;
-	position: relative;
-	background: rgba(0, 0, 0, 0.7);
-	left: calc(-1em - 8px);
-	max-width: 100vw;
-	width: 100vw;
-	margin-bottom: 40px;
-	padding-bottom: 0;
-	margin-top: -30px;
-	padding-top: 50px;
+    .contentSpacing .TrackListHeader {
+        flex-flow: column;
+        position: relative;
+        background: rgba(0, 0, 0, 0.7);
+        left: calc(-1.6em - 8px);
+        max-width: 100vw;
+        width: 100vw;
+        margin-bottom: 40px;
+        padding-bottom: 0;
+/*        margin-top: -30px;
+        padding-top: 50px; */
+    }
+
+.EpisodePage .TrackListHeader {
+    flex-flow: column;
+    position: relative;
+    background: rgba(0, 0, 0, 0.7);
+    left: calc(-1em - 8px);
+    max-width: 100vw;
+    width: 100vw;
+    margin-bottom: 40px;
+    padding-bottom: 0;
+    /*        margin-top: -30px;
+        padding-top: 50px; */
 }
 
-header .media-object{
-	margin: 0;
-	width: 100%;
+.TrackListHeader .media-object {
+    margin: 0;
+    width: 100%;
 }
 
-header .media-bd {
-	text-align: center;
-	margin: auto;
-	padding-top: 20px;
+.TrackListHeader__entity-by {
+    padding-right: 5px;
 }
 
-header .media-bd > button {
-	margin-bottom: -20px;
-	margin-top: 25px;
-	transform: scale(1.2);
+.TrackListHeader .TrackListHeader__body {
+    text-align: center;
+    margin: auto;
+    padding-top: 20px;
 }
 
-header .media-bd .horizontal-list > button {
-	display: none;
+    .TrackListHeader .TrackListHeader__body .TrackListHeader__button {
+        margin-bottom: -17px;
+        margin-top: 25px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        transform: scale(1.2);
+    }
+
+.TrackListHeader .TrackListHeader__body .horizontal-list > button {
+    display: none;
 }
 
-header .media-bd .horizontal-list button {
-	margin: 0;
-	padding: 0;
+    .TrackListHeader .TrackListHeader__body .horizontal-list button {
+        margin: 0;
+        padding: auto;
+    }
+
+    .TrackListHeader .TrackListHeader__body .horizontal-list, .header-buttons .react-contextmenu-wrapper {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+.TrackListHeader .media-object button.cover-art-playback {
+    display: none !important;
 }
 
-header .media-bd .horizontal-list, .header-buttons .react-contextmenu-wrapper {
-	position: absolute;
-	right: 0;
-	top: 10px;
+.TrackListHeader .cover-art, .TrackListHeader .media-object {
+    position: initial;
+    width: 0 !important;
+    height: 0 !important;
 }
 
-header .media-object button.cover-art-playback {
-	display: none !important;
+.TrackListHeader .media-object .cover-art-image {
+    filter: initial !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
-header .cover-art, .entity-info .media-object {
-	position: initial;
-	width: 0 !important;
-	height: 0 !important;
+.TrackListHeader .media-object .cover-art .icon {
+    display: none;
 }
 
-header .media-object .cover-art-image {
-	filter: initial !important;
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
-}
-
-header .media-object .cover-art .icon {
-	display: none;
-}
-
-header .daily-mix-decoration{
-	display: none;
+.TrackListHeader .daily-mix-decoration {
+    display: none;
 }
 
 /* Artist */
 .header-buttons .react-contextmenu-wrapper button {
-	margin: 0;
+	margin: 15px;
+    padding: 0;
 }
 
 .header-buttons > * {
@@ -491,10 +508,10 @@ header.artist-header .monthly-listeners{
 	margin-bottom: 0 !important;
 }
 
-.artist-header{
+/* .artist-header{
 	margin-top: -20px;
 	padding-top: 20px;
-}
+} */
 
 /* Dialog */
 .dialog .contentSpacing > div:first-of-type > button, .dialog > div:first-of-type > .btn-transparent {
@@ -539,6 +556,7 @@ header.artist-header .monthly-listeners{
 .now-playing-bar-container{
 	min-width: initial;
 	width: 100%;
+    height: 100%;
 }
 
 .now-playing-bar{
@@ -595,9 +613,9 @@ header.artist-header .monthly-listeners{
 .now-playing > button {
 	position: absolute;
 	left: 0;
-	bottom: 5px;
+	bottom: -134px;
 	transform: scale(1.2);
-	margin: 4px 8px;
+/*	margin: 4px 8px; */
 }
 
 .now-playing .track-info {
@@ -684,9 +702,9 @@ header.artist-header .monthly-listeners{
 	width: 130px;
 }
 
-.compactPlayingBar .nowPlayingBar-container {
-	bottom: 55px !important;
-	height: auto;
+.Root__now-playing-bar {
+    bottom: 55px !important;
+    height: 100%;
 }
 
 .compactPlayingBar .player-controls__buttons .control-button {
@@ -792,4 +810,44 @@ header.artist-header .monthly-listeners{
 	left: 0;
 	width: calc(100% - 60px);
 	height: 100%;
+}
+
+.Root__main-view {
+    padding-left: 0;
+}
+
+.navBar-link--active::after {
+    display: none;
+}
+
+.navBar-item .navBar-link--active .collection-active-icon,
+.navBar-item .navBar-link--active .home-active-icon,
+.navBar-item .navBar-link--active .search-active-icon {
+    color: #1ed760;
+}
+
+.navBar-item--with-icon-left .navBar-link-text-with-icon-wrapper,
+.navBar-item--with-icon-right .navBar-link-text-with-icon-wrapper {
+    flex-direction: column;
+}
+
+.navBar-item .navBar-link--active .collection-active-icon + .navbar-link__text,
+.navBar-item .navBar-link--active .home-active-icon + .navbar-link__text,
+.navBar-item .navBar-link--active .search-active-icon + .navbar-link__text,
+.UserWidget__link--is-active {
+    color: #1ed760 !important;
+}
+
+.UserWidget__link {
+    padding: 0 24px;
+    width: 100%;
+}
+
+.UserWidget__user-avatar {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.compactPlayingBar > .Root > .Root__now-playing-bar {
+    height: auto;
 }
