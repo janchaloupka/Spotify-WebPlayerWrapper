@@ -68,7 +68,7 @@ html, body {
 }
 
 .compactPlayingBar .AdsContainer {
-	bottom: 103px;
+	bottom: 101px;
 	top: initial;
     transform: scale(0.565);
 	transform-origin: left bottom;
