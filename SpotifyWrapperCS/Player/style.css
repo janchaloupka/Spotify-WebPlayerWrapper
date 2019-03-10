@@ -70,7 +70,7 @@ html, body {
 .compactPlayingBar .AdsContainer {
 	bottom: 103px;
 	top: initial;
-    transform: scale(0.7);
+    transform: scale(0.58);
 	transform-origin: left bottom;
 }
 
