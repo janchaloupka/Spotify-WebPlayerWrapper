@@ -48,14 +48,18 @@ html, body {
     transform-origin: left top;
 }
 
-/*.Root__ads-container {
-    transform: scale(0.5);
+.Root__ads-container {
+/*    transform: scale(0.5);
     transform-origin: left top;
     width: 200%;
     top: 0;
-    bottom: initial;
+    bottom: initial; */
     z-index: 9000;
-}*/
+}
+
+ .AdsContainer {
+     width: 100% !important;
+ }
 
 .ads-container, .ads-container *{
 	margin: 0;
@@ -63,7 +67,7 @@ html, body {
     z-index: 9000;
 }
 
-.compactPlayingBar .ads-container{
+.compactPlayingBar .AdsContainer {
 	bottom: 103px;
 	top: initial;
 	transform-origin: left bottom;
