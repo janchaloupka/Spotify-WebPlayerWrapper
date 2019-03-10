@@ -13,9 +13,13 @@ html, body {
 	position: -ms-device-fixed;
 }
 
-.amoledDarkMode ._1YMukI_FrE7QRuUVSvq_Qe{
-	background-image: none !important;
-	background-color: black;
+.amoledDarkMode ._1YMukI_FrE7QRuUVSvq_Qe, .amoledDarkMode .now-playing-bar-container, .amoledDarkMode .SearchInputBox, .amoledDarkMode .artist-music.container-fluid, .amoledDarkMode .artist-singles.artist-albums, .amoledDarkMode .artist-appears-on, .amoledDarkMode .related-artists, .amoledDarkMode .ArtistAbout__container, .amoledDarkMode .compactPlayingBar {
+    background-image: none !important;
+    background-color: black;
+}
+
+.amoledDarkMode .SearchInputBox {
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.2);
 }
 
 /* Prevent rubber band scrolling */
@@ -56,12 +60,18 @@ html, body {
 .ads-container, .ads-container *{
 	margin: 0;
 	padding: 0;
+    z-index: 9000;
 }
 
 .compactPlayingBar .ads-container{
 	bottom: 103px;
 	top: initial;
 	transform-origin: left bottom;
+}
+
+/* Popup notificaion*/
+.ITVPJxOvtLt7upeE1TV9- {
+    margin-top: calc(var(--status-bar-height)) !important;
 }
 
 /* Menu (Bottom) */
@@ -82,7 +92,6 @@ html, body {
 .navBar {
     padding: 0 !important;
     width: 100%;
-	overflow: hidden;
     flex-flow: row;
 }
 
@@ -378,7 +387,7 @@ html, body {
 }
 
 .tracklist-col-duration{
-	padding-right: 2px !important;
+	padding-right: 0px !important;
 	width: 3em;
 }
 
@@ -424,7 +433,7 @@ html, body {
         flex-flow: column;
         position: relative;
         background: rgba(0, 0, 0, 0.7);
-        left: calc(-1.6em - 8px);
+        left: calc(-1em - 8px);
         max-width: 100vw;
         width: 100vw;
         margin-bottom: 40px;
@@ -433,7 +442,7 @@ html, body {
         padding-top: 50px; */
     }
 
-.EpisodePage .TrackListHeader {
+/* .EpisodePage .TrackListHeader {
     flex-flow: column;
     position: relative;
     background: rgba(0, 0, 0, 0.7);
@@ -442,9 +451,9 @@ html, body {
     width: 100vw;
     margin-bottom: 40px;
     padding-bottom: 0;
-    /*        margin-top: -30px;
-        padding-top: 50px; */
-}
+        margin-top: -30px;
+        padding-top: 50px;
+} */
 
 .TrackListHeader .media-object {
     margin: 0;
@@ -483,7 +492,7 @@ html, body {
         position: absolute;
         right: 0;
         top: var(--status-bar-height);
-		margin: 0 !important;
+		margin-right: 5px !important;
     }
 
 .TrackListHeader .media-object button.cover-art-playback {
@@ -514,9 +523,18 @@ html, body {
     display: none;
 }
 
+.EpisodePage .btn {
+    margin-left: -5px;
+}
+
+.EpisodePage .TrackListHeader__entity-name {
+    padding-top: calc(var(--status-bar-height)) !important;
+}
+
 /* Artist */
 .header-buttons .react-contextmenu-wrapper button {
-	margin: 15px;
+	margin-top: 18px;
+    margin-right: 1px;
     padding: 0;
 }
 
@@ -526,6 +544,7 @@ html, body {
 
 .header-buttons{
 	position: initial !important;
+    margin-left: 30px;
 }
 
 .header-buttons .btn-black{
