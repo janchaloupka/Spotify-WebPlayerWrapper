@@ -58,7 +58,7 @@ html, body {
 }
 
  .AdsContainer {
-     width: 100% !important;
+     width: auto !important;
  }
 
 .ads-container, .ads-container *{
@@ -70,6 +70,7 @@ html, body {
 .compactPlayingBar .AdsContainer {
 	bottom: 103px;
 	top: initial;
+    transform: scale(0.7);
 	transform-origin: left bottom;
 }
 
