@@ -74,6 +74,10 @@ html, body {
 	transform-origin: left bottom;
 }
 
+.compactPlayingBar .is-connectBarVisible .AdsContainer {
+    bottom: 125px;
+}
+
 /* Popup notificaion*/
 .ITVPJxOvtLt7upeE1TV9- {
     margin-top: calc(var(--status-bar-height)) !important;
@@ -915,6 +919,10 @@ header.artist-header .monthly-listeners{
 
 .compactPlayingBar > .Root > .Root__now-playing-bar {
     height: auto;
+}
+
+.compactPlayingBar .now-playing-bar {
+    min-height: 48px;
 }
 
 .ConnectBar {

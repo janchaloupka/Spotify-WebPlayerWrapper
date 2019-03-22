@@ -189,7 +189,7 @@ function ReactToURLChange() {
 function WaitForLoad() {
     if (document.getElementsByClassName("sessionInfo").length == 0) {
         // Use compact player when not signed in
-        // document.getElementById("main").className = "compactPlayingBar";
+        document.getElementById("main").className = "compactPlayingBar";
         window.requestAnimationFrame(WaitForLoad);
     }
 	else
