@@ -917,8 +917,12 @@ header.artist-header .monthly-listeners{
     height: auto;
 }
 
+.ConnectBar {
+    text-align: center !important;
+}
+
 /* Connect Bar tail */
-.ConnectBar::after {
+.ConnectBar:after {
     right: 195px !important;
 }
 
