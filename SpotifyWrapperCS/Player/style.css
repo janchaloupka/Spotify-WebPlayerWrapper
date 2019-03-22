@@ -764,7 +764,7 @@ header.artist-header .monthly-listeners{
 }
 
 .volume-bar{
-	width: 130px;
+	width: 165px;
 }
 
 .Root__now-playing-bar {
@@ -915,4 +915,13 @@ header.artist-header .monthly-listeners{
 
 .compactPlayingBar > .Root > .Root__now-playing-bar {
     height: auto;
+}
+
+/* Connect Bar tail */
+.ConnectBar::after {
+    right: 195px !important;
+}
+
+.compactPlayingBar .ConnectBar:after {
+    display: none;
 }

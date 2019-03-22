@@ -189,7 +189,7 @@ function ReactToURLChange() {
 function WaitForLoad() {
     if (document.getElementsByClassName("sessionInfo").length == 0) {
         // Use compact player when not signed in
-        document.getElementById("main").className = "compactPlayingBar";
+        // document.getElementById("main").className = "compactPlayingBar";
         window.requestAnimationFrame(WaitForLoad);
     }
 	else
@@ -199,7 +199,7 @@ WaitForLoad();
 
 // Wait until media controls are loaded
 function WaitForMediaBar() {
-	if (document.getElementsByClassName("now-playing").legnth == 0)
+	if (document.getElementsByClassName("now-playing").length == 0)
 		window.requestAnimationFrame(WaitForMediaBar);
 	else
 		InjectSystemMediaControl();
