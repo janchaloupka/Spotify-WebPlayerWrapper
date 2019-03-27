@@ -101,12 +101,24 @@ function InjectCustomLayout() {
 	document.getElementById("main").className = "compactPlayingBar";
 
 	var expandPlayingBar = document.createElement("div");
-	expandPlayingBar.className = "expand-playing-bar";
-	expandPlayingBar.addEventListener("click", function () {
-		document.getElementById("main").className = "";
+    expandPlayingBar.className = "expand-playing-bar";
+    document.getElementsByClassName("Root__now-playing-bar")[0].appendChild(expandPlayingBar);
+    var PlayingBar = document.getElementsByClassName("Root__now-playing-bar")[0];
+    PlayingBar.addEventListener("click", function (e) {
+        if (document.getElementById("main").className == "compactPlayingBar" && e.target == expandPlayingBar) {
+            document.getElementById("main").className = "";
+            document.getElementsByClassName("Root__nav-bar")[0].style.display = "none";
+            PlayingBar.style.setProperty("bottom", "0px", "important");
+        }
+        else {
+            if (e.target == document.getElementsByClassName("now-playing")[0] || e.target == document.getElementsByClassName("now-playing-bar__left")[0]) {
+                document.getElementById("main").className = "compactPlayingBar";
+                document.getElementsByClassName("Root__nav-bar")[0].style.display = "";
+                PlayingBar.style.bottom = "";
+            }
+        }
 		//history.pushState(null, null, "#largecontrol");
 	});
-    document.getElementsByClassName("Root__now-playing-bar")[0].appendChild(expandPlayingBar);
 
 	window.addEventListener("click", ReactToURLChange);
 	window.addEventListener("popstate", ReactToURLChange);
@@ -177,7 +189,9 @@ var lasturl = location.pathname;
 function ReactToURLChange() {
 	if (location.pathname != lasturl) {
 		lasturl = location.pathname;
-		document.getElementById("main").className = "compactPlayingBar";
+        document.getElementById("main").className = "compactPlayingBar";
+        document.getElementsByClassName("Root__nav-bar")[0].style.display = "";
+        document.getElementsByClassName("Root__now-playing-bar")[0].style.bottom = "";
 	}
 
 	if (document.location.pathname.indexOf("/settings/account") >= 0) {
