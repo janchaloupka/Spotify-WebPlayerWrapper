@@ -666,6 +666,7 @@ header.artist-header .monthly-listeners{
 .now-playing{
 	flex-flow: column;
 	height: 100%;
+    width: 100%;
 	flex-grow: 1;
 }
 
