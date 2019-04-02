@@ -78,6 +78,8 @@ var originalHistoryBack = history.back;
 history.back = function () {
 	if (document.getElementById("main").className == "") {
 		document.getElementById("main").className = "compactPlayingBar";
+		document.getElementsByClassName("Root__nav-bar")[0].style.display = "";
+		document.getElementsByClassName("Root__now-playing-bar")[0].style.bottom = "";
 	} else {
 		history.go(-1);
 	}
