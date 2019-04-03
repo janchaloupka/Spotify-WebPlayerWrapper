@@ -122,6 +122,14 @@ function InjectCustomLayout() {
 		//history.pushState(null, null, "#largecontrol");
 	});
 
+	// Change context menu position if touch is detected
+	var Context = document.getElementsByClassName("react-contextmenu");
+	var Screen = document.getElementsByClassName("main-view-container__content")[0];
+	Screen.addEventListener("touchstart", function () {
+		for (var i = 0; i < Context.length; i++)
+			Context[i].style.position = "absolute";
+	});
+
 	window.addEventListener("click", ReactToURLChange);
 	window.addEventListener("popstate", ReactToURLChange);
 	document.querySelector(".sessionInfo a").addEventListener("click", ReactToURLChange);
