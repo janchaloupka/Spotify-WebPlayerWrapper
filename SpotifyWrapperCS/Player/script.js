@@ -78,6 +78,8 @@ var originalHistoryBack = history.back;
 history.back = function () {
 	if (document.getElementById("main").className == "") {
 		document.getElementById("main").className = "compactPlayingBar";
+		document.getElementsByClassName("Root__nav-bar")[0].style.display = "";
+		document.getElementsByClassName("Root__now-playing-bar")[0].style.bottom = "";
 	} else {
 		history.go(-1);
 	}
@@ -101,12 +103,32 @@ function InjectCustomLayout() {
 	document.getElementById("main").className = "compactPlayingBar";
 
 	var expandPlayingBar = document.createElement("div");
-	expandPlayingBar.className = "expand-playing-bar";
-	expandPlayingBar.addEventListener("click", function () {
-		document.getElementById("main").className = "";
+    expandPlayingBar.className = "expand-playing-bar";
+    document.getElementsByClassName("Root__now-playing-bar")[0].appendChild(expandPlayingBar);
+    var PlayingBar = document.getElementsByClassName("Root__now-playing-bar")[0];
+    PlayingBar.addEventListener("click", function (e) {
+        if (document.getElementById("main").className == "compactPlayingBar" && e.target == expandPlayingBar) {
+            document.getElementById("main").className = "";
+            document.getElementsByClassName("Root__nav-bar")[0].style.display = "none";
+            PlayingBar.style.setProperty("bottom", "0px", "important");
+        }
+        else {
+            if (e.target == document.getElementsByClassName("now-playing")[0] || e.target == document.getElementsByClassName("now-playing-bar__left")[0]) {
+                document.getElementById("main").className = "compactPlayingBar";
+                document.getElementsByClassName("Root__nav-bar")[0].style.display = "";
+                PlayingBar.style.bottom = "";
+            }
+        }
 		//history.pushState(null, null, "#largecontrol");
 	});
-    document.getElementsByClassName("Root__now-playing-bar")[0].appendChild(expandPlayingBar);
+
+	// Change context menu position if touch is detected
+	var Context = document.getElementsByClassName("react-contextmenu");
+	var Screen = document.getElementsByClassName("main-view-container__content")[0];
+	Screen.addEventListener("touchstart", function () {
+		for (var i = 0; i < Context.length; i++)
+			Context[i].style.position = "absolute";
+	});
 
 	window.addEventListener("click", ReactToURLChange);
 	window.addEventListener("popstate", ReactToURLChange);
@@ -177,7 +199,9 @@ var lasturl = location.pathname;
 function ReactToURLChange() {
 	if (location.pathname != lasturl) {
 		lasturl = location.pathname;
-		document.getElementById("main").className = "compactPlayingBar";
+        document.getElementById("main").className = "compactPlayingBar";
+        document.getElementsByClassName("Root__nav-bar")[0].style.display = "";
+        document.getElementsByClassName("Root__now-playing-bar")[0].style.bottom = "";
 	}
 
 	if (document.location.pathname.indexOf("/settings/account") >= 0) {
@@ -199,7 +223,7 @@ WaitForLoad();
 
 // Wait until media controls are loaded
 function WaitForMediaBar() {
-	if (document.getElementsByClassName("now-playing").legnth == 0)
+	if (document.getElementsByClassName("now-playing").length == 0)
 		window.requestAnimationFrame(WaitForMediaBar);
 	else
 		InjectSystemMediaControl();
