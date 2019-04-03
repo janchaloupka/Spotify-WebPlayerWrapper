@@ -764,10 +764,6 @@ header.artist-header .monthly-listeners{
 	margin: 4px 8px;
 }
 
-.connect-bar::after{
-	right: 160px;
-}
-
 .volume-bar{
 	width: 165px;
 }
@@ -924,6 +920,10 @@ header.artist-header .monthly-listeners{
 
 .compactPlayingBar .now-playing-bar {
     min-height: 48px;
+}
+
+.connect-device-list-container--is-visible {
+    margin-right: 10px;
 }
 
 .ConnectBar {
