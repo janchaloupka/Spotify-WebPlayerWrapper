@@ -108,6 +108,10 @@ html, body {
 	display: none;
 }
 
+.NavBar__download-item {
+    display: none;
+}
+
 .sessionInfo {
     padding: 0 !important;
     border-top: none;
@@ -144,7 +148,6 @@ html, body {
 
 .navBar-item--with-icon-left{
 	padding: 0;
-	padding-bottom: 3px;
 }
 
 .navbar-link__text, .sessionInfo .user-link, .UserWidget__user-link {
@@ -906,8 +909,12 @@ header.artist-header .monthly-listeners{
 }
 
 .UserWidget__link {
-    padding: 12px 32px;
+    padding: 10px 32px 11px;
     width: 100%;
+}
+
+.UserWidget__container {
+    height: 56px;
 }
 
 .UserWidget__user-avatar {
