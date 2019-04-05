@@ -104,9 +104,9 @@ html, body {
     flex-flow: row;
 }
 
-.navBar > div:nth-of-type(3){
+/* .navBar > div:nth-of-type(3){
 	display: none;
-}
+} */
 
 .NavBar__download-item {
     display: none;
