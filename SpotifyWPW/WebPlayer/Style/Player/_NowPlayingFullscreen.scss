@@ -1,0 +1,304 @@
+﻿/*
+	Fullscreen media controls
+	This uses hidden second "now playing" bar
+*/
+@import "../Generic";
+
+.Root__now-playing-view {
+	position: static;
+
+	.NowPlayingView {
+		position: -ms-device-fixed;
+		display: flex;
+		flex-direction: column;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 200;
+		background: #333;
+		transition: transform 500ms;
+		transition-timing-function: cubic-bezier(.25,.7,.31,1);
+		will-change: transform;
+		touch-action: manipulation;
+
+		// Move out of view when the fullscreen media controls should be hidden
+		.nowPlayingViewHidden & {
+			transform: translateY(100vh);
+		}
+
+		// By default all elements are invisible
+		* {
+			opacity: 1;
+		}
+
+		// Playlist name
+		&__header {
+			padding: 0;
+			width: auto;
+			height: 60px;
+
+			&-inner {
+				padding: 0;
+				background: none;
+				min-width: initial;
+				width: 100%;
+				height: auto;
+				text-align: center;
+				justify-content: center;
+
+				& > button {
+					display: none;
+				}
+			}
+		}
+
+		// "Playing from" text at the top of the view
+		&__playing-from {
+			font-size: 10px;
+		}
+
+		// Playlist name
+		&__context-title {
+			font-size: 13px;
+			line-height: normal;
+		}
+
+		// "now playing" view wrapper
+		&__footer {
+			position: static;
+			padding: 0;
+			display: flex;
+			flex-grow: 1;
+		}
+
+		.now-playing-bar {
+			flex-direction: column;
+			flex-grow: 1;
+			max-width: 400px;
+			width: 100%;
+			margin: 0 auto;
+
+			& > * {
+				width: 100%;
+				min-width: initial;
+				max-width: initial;
+				position: relative;
+				margin: 0;
+			}
+
+			// Song cover art, name and artists
+			&__left {
+				flex-grow: 2;
+				
+				.now-playing {
+					flex-direction: column;
+					height: 100%;
+
+					// Prevent album art drag-and-drop
+					&__widget-overlay{
+						position: relative;
+						pointer-events: none;
+						margin: auto 0;
+
+						&:after {
+							content: "";
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+						}
+					}
+
+					// Add to my library button
+					& > button {
+						position: absolute;
+						right: 6px;
+						bottom: 2px;
+						width: 32px;
+						height: 32px;
+						
+						&:before {
+							font-size: 24px;
+						}
+					}
+				}
+
+				.cover-art {
+					width: 300px !important;
+					height: 300px !important;
+
+					@media(max-height: 579px){
+						width: 200px !important;
+						height: 200px !important;
+					}
+
+					@media(max-height: 474px){
+						width: 100px !important;
+						height: 100px !important;
+					}
+				}
+
+				.track-info {
+					margin: 0;
+					margin-top: auto;
+					padding-right: 42px;
+					padding-left: 8px;
+					width: 100%;
+
+					&__name {
+						text-align: left;
+						margin-top: 16px;
+						font-weight: 400;
+						font-size: 18px;
+						line-height: 22px;
+					}
+
+					&__artists {
+						text-align: left;
+						font-weight: 400;
+						font-size: 14px;
+					}
+				}
+			}
+
+			// Audio controls
+			&__center {
+				flex-grow: 1;
+				margin: 0 24px;
+				padding-top: 16px;
+
+				// Wrapper for media controls
+				.player-controls {
+					flex-direction: column-reverse;
+
+					// Track bar
+					.playback-bar{
+						position: relative;
+						padding: 14px 10px;
+						padding-bottom: 0;
+
+						&__progress-time{
+							min-width: initial;
+						}
+
+						.progress-bar{
+							position: absolute;
+							top: 0;
+							left: 8px;
+							width: calc(100% - 16px);
+						}
+					}
+
+					// Media control buttons
+					&__buttons {
+						width: 100%;
+						justify-content: space-between;
+						align-items: center;
+						margin-bottom: 8px;
+
+						.control-button {
+							width: 40px;
+							height: 40px;
+							margin: 0 2px;
+							color: white;
+							flex-shrink: 0;
+
+							&:before {
+								font-size: 24px;
+							}
+
+							&--active {
+								color: #1db954;
+							}
+
+							&--disabled{
+								color: #404040;
+							}
+
+							// Play/pause button
+							&--circled{
+								width: 60px;
+								height: 60px;
+								color: black;
+
+								&:before {
+									font-size: 28px;
+									z-index: 1;
+									position: relative;
+								}
+
+								&:after{
+									background: white;
+									border: none;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			// Spotify connect and queue
+			&__right {
+				margin-bottom: 8px;
+
+				
+				.ExtraControls{
+					justify-content: space-between;
+
+					&__connect-device-picker{
+						min-width: 50%;
+
+						.is-connectBarVisible & .connect-device-picker > .control-button{
+							width: 100%;
+							color: transparent;
+						}
+					}
+
+					.control-button{
+						width: 40px;
+						height: 40px;
+					}
+
+					.control-button:before{
+						font-size: 16px;
+					}
+				}
+
+				// Queue button
+				.GlueDropTarget {
+					order: 2;
+				}
+				
+				&__inner{
+					width: 100%;
+				}
+
+				.volume-bar{
+					display: none;
+					position: -ms-device-fixed;
+					left: 20px;
+					right: 32px;
+					bottom: 44px;
+					z-index: 1010;
+					width: initial;
+
+					.progress-bar{
+						height: 20px;
+
+						&__fg{
+							background-color: #1db954 !important;
+						}
+					}
+				}
+			}
+
+
+			&-container {
+				min-width: initial;
+				flex-grow: 1;
+			}
+		}
+	}
+}

@@ -1,0 +1,110 @@
+﻿/*
+	Spotify Connect elements
+	 - Spotify connect bar
+	 - List of available devices
+*/
+
+@import "../Generic";
+
+// Spotify connect bar, displays current device in the place of artists (under the song name)
+// or at the bottom of screen when the media controls are in fullscreen mode
+.ConnectBar {
+	position: -ms-device-fixed !important;
+	width: 100%;
+	left: 28px;
+	bottom: 16px;
+	background-color: transparent;
+	text-align: left !important;
+	z-index: 1000;
+	pointer-events: none;
+	font-size: 0px !important;
+	color: #1db954;
+
+	// Center conenct bar when in fullscreen playback view
+	padding-left: calc(50vw - 200px);
+
+	.nowPlayingViewHidden & {
+		position: absolute !important;
+		width: calc(100% - 48px - 48px);
+		left: 48px;
+		bottom: 0px;
+		padding-left: 12px;
+		background-color: inherit;
+
+		&__device-name {
+			font-size: 10px;
+		}
+	}
+
+	&__device-name {
+		font-size: 12px;
+		margin-left: 3px;
+	}
+
+	&__device-icon:before {
+		vertical-align: top;
+		font-size: 14px;
+	}
+	/* Remove arrow from Spotify Connect bar */
+	&:after {
+		display: none;
+	}
+}
+
+// Device picker in fullscreen playback view
+.Root__now-playing-view{
+	.connect-device-list{
+		padding: 20px 8px;
+		margin-top: auto;
+		padding-bottom: 56px;
+		margin-bottom: 20px;
+		
+		&-container {
+			position: -ms-device-fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0px;
+			width: 100%;
+			background: black;
+			border-radius: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+
+			&:before{
+				display: none;
+			}
+
+			.Root.is-connectBarVisible &--is-visible ~ .volume-bar{
+				display: flex !important;
+			}
+		}
+
+		&-content{
+			max-height: initial;
+			padding-top: $statusBarHeight;
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+
+			.connect-title{
+				margin-bottom: 16px;
+				
+				&__help{
+					top: 8px;
+					right: 20px;
+				}
+
+				&__text{
+					padding: 8px 40px;
+					padding-top: 48px;
+				}
+			}
+		}
+
+		&-item{
+			background: inherit;
+		}
+	}
+}

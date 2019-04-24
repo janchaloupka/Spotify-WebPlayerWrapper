@@ -1,0 +1,71 @@
+﻿/*
+	Settings and user info page
+*/
+@import "../Generic";
+
+// User button
+.sessionInfo {
+	display: none;
+
+	&Show & {
+		display: block;
+	}
+	
+	position: absolute;
+	top: $statusBarHeight;
+	right: 0;
+	z-index: 10;
+	border: none;
+	margin-right: 12px;
+	padding-top: 13px;
+
+	.UserWidget {
+		&__link {
+			display: flex;
+			align-items: center;
+			flex-direction: row-reverse;
+		}
+
+		&__user-link {
+			margin-left: 0;
+			margin-right: 10px;
+		}
+	}
+}
+
+// Settings page
+.bvKSpB2UdAPi_Ic90nvvA {
+	padding: 12px;
+	padding-top: 56px;
+
+	// Items container
+	._3eGJHUfjUZw0Yxw6NyFcdT {
+		// Profile picture and name
+		& > div:first-child {
+			display: flex;
+			align-items: center;
+
+			img {
+				width: 64px;
+				height: 64px;
+				margin-right: 16px;
+			}
+
+			h1 {
+				font-size: 22px;
+			}
+		}
+
+		// Controls
+		.button-group {
+			align-self: center;
+			margin-top: 24px;
+		}
+
+		// Legal notices
+		._2N0xQDRqDyQyZYfLxpHOl_ {
+			margin: 0;
+			margin-top: 48px;
+		}
+	}
+}

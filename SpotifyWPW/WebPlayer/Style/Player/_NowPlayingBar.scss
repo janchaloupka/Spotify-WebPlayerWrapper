@@ -1,0 +1,131 @@
+﻿/*
+	Compact "now playing" bar located above the navbar
+*/
+
+@import "../Generic";
+
+.Root__now-playing-bar {
+	position: static;
+	bottom: 52px; // Navbar height
+	height: 48px;
+	background-color: black;
+
+	.nowPlayingViewHidden & {
+		position: -ms-device-fixed;
+	}
+
+	.now-playing-bar {
+		height: 100%;
+		padding: 0;
+
+		&-container {
+			min-width: initial;
+			background-color: #111;
+			height: 100%;
+		}
+	
+		// Invisible element - when tapped it activates the fullscreen controls
+		&-maximize {
+			position: absolute;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			opacity: 0;
+			z-index: 2;
+
+			body:not(.nowPlayingViewHidden) &{
+				position: -ms-device-fixed;
+				width: 40px;
+				height: 40px;
+				top: $statusBarHeight;
+				left: 16px;
+				opacity: 1;
+				z-index: 1000;
+			}
+		}
+
+		// Song info (album art, name, artists)
+		&__left {
+			width: auto;
+		}
+
+		// Hide queue button, connect button and volume bar
+		&__right {
+			display: none;
+		}
+
+		// Music controls (only the play/pause button is visible)
+		&__center {
+			width: auto;
+			padding: 0;
+		}
+	}
+
+
+	// Song info
+	.now-playing {
+		// Hide "save to your library" button
+		button {
+			display: none;
+		}
+
+		.track-info__name{
+			font-weight: 400;
+		}
+
+		.cover-art {
+			width: 48px !important;
+			height: 48px !important;
+		}
+	}
+	
+	// Player controls
+	.player-controls__buttons {
+		width: auto;
+		margin: 0;
+		padding: 8px 12px;
+		position: relative;
+		z-index: 3;
+	
+		// Remove all controls except the play/pause button
+		:not(.control-button--circled) {
+			display: none;
+		}
+	}
+
+	// Trackbar
+	.playback-bar {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+
+		// Hide time info
+		&__progress-time {
+			display: none;
+		}
+
+		.progress-bar {
+			height: auto;
+
+			* {
+				border-radius: 0 !important;
+			}
+
+			&__bg {
+				height: 1px;
+				overflow: hidden;
+				position: static;
+				transform: none;
+			}
+
+			&__slider {
+				display: none;
+			}
+		}
+	}
+}

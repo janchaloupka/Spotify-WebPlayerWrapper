@@ -1,0 +1,24 @@
+﻿/*
+	General styles and variables
+*/
+
+/// Height of the windows phone status bar
+/// (the bar at the top of the screen with clock, battery status, notification icons, etc.) 
+$statusBarHeight: 20px;
+
+// Disable text selection
+*:not(input){
+	-ms-user-select: none;
+	user-select: none;
+}
+
+// Prevent user from zooming the html page with pinch gesture
+html, body {
+	-ms-content-zooming: none;
+}
+
+// Disable cookies notice
+.ITVPJxOvtLt7upeE1TV9-._1x7i7dLhHZEm-xUAl44ncL,
+#js-message-bar-cookie-notice {
+	display: none;
+}

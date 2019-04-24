@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpotifyWrapperCS", "SpotifyWrapperCS\SpotifyWrapperCS.csproj", "{6DACA282-3B68-4891-94AB-EAF2FBED5B02}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpotifyWPW", "SpotifyWPW\SpotifyWPW.csproj", "{6DACA282-3B68-4891-94AB-EAF2FBED5B02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
