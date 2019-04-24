@@ -200,7 +200,7 @@ var SettingsPageModify;
 
 	const openSourceButton = document.createElement("div");
 	openSourceButton.className = "button-group__item";
-	openSourceButton.innerHTML = '<a class="btn btn-black btn-small" style="min-width: 240px;" href="https://github.com/janch32/Spotify-WPW" target="_blank">GITHUB REPOSITORY</a>';
+	openSourceButton.innerHTML = '<a class="btn btn-black btn-small" style="min-width: 240px;" href="https://github.com/janch32/Spotify-WebPlayerWrapper" target="_blank">GITHUB REPOSITORY</a>';
 
 	const openSourceInformation = document.createElement("p");
 	openSourceInformation.innerText = "Link where you can view source code, report bugs, make suggestions or contribute with your code to make this app even better.";
