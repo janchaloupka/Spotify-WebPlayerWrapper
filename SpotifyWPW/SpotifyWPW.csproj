@@ -115,22 +115,20 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="SpotifyWPW_StoreKey.pfx" />
-    <None Include="WebPlayer\Style\Login.css.map" />
     <None Include="WebPlayer\Style\Login.scss" />
-    <None Include="WebPlayer\Style\Player.css.map" />
     <None Include="WebPlayer\Style\Player.scss" />
-    <None Include="WebPlayer\Style\Player\Page.css.map" />
-    <None Include="WebPlayer\Style\Player\_ArtistPage.scss" />
-    <None Include="WebPlayer\Style\Player\_ContextMenu.scss" />
-    <None Include="WebPlayer\Style\Player\_Dialog.scss" />
-    <None Include="WebPlayer\Style\Player\_NavBar.scss" />
-    <None Include="WebPlayer\Style\Player\_NowPlayingBar.scss" />
-    <None Include="WebPlayer\Style\Player\_NowPlayingFullscreen.scss" />
-    <None Include="WebPlayer\Style\Player\_Page.scss" />
-    <None Include="WebPlayer\Style\Player\_SearchPage.scss" />
-    <None Include="WebPlayer\Style\Player\_SpotifyConnect.scss" />
-    <None Include="WebPlayer\Style\Player\_TrackList.scss" />
-    <None Include="WebPlayer\Style\Player\_UserInfo.scss" />
+    <None Include="WebPlayer\Style\Components\Page.css.map" />
+    <None Include="WebPlayer\Style\Components\_ArtistPage.scss" />
+    <None Include="WebPlayer\Style\Components\_ContextMenu.scss" />
+    <None Include="WebPlayer\Style\Components\_Dialog.scss" />
+    <None Include="WebPlayer\Style\Components\_NavBar.scss" />
+    <None Include="WebPlayer\Style\Components\_NowPlayingBar.scss" />
+    <None Include="WebPlayer\Style\Components\_NowPlayingFullscreen.scss" />
+    <None Include="WebPlayer\Style\Components\_Page.scss" />
+    <None Include="WebPlayer\Style\Components\_SearchPage.scss" />
+    <None Include="WebPlayer\Style\Components\_SpotifyConnect.scss" />
+    <None Include="WebPlayer\Style\Components\_TrackList.scss" />
+    <None Include="WebPlayer\Style\Components\_UserInfo.scss" />
     <None Include="WebPlayer\Style\_Generic.scss" />
   </ItemGroup>
   <ItemGroup>
@@ -163,7 +161,7 @@
     <Content Include="WebPlayer\silence.mp3" />
     <Content Include="WebPlayer\Style\Login.min.css" />
     <Content Include="WebPlayer\Style\Player.min.css" />
-    <Content Include="WebPlayer\Style\Player\Page.min.css" />
+    <Content Include="WebPlayer\Style\Components\Page.min.css" />
     <None Include="Package.StoreAssociation.xml" />
   </ItemGroup>
   <ItemGroup>

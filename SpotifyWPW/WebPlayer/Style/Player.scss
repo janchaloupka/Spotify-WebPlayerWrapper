@@ -2,17 +2,17 @@
 	Main style for player
 */
 @import "Generic";
-@import "Player/NavBar";
-@import "Player/NowPlayingBar";
-@import "Player/NowPlayingFullscreen";
-@import "Player/SpotifyConnect";
-@import "Player/Page";
-@import "Player/Dialog";
-@import "Player/SearchPage";
-@import "Player/ArtistPage";
-@import "Player/TrackList";
-@import "Player/UserInfo";
-@import "Player/_ContextMenu";
+@import "Components/NavBar";
+@import "Components/NowPlayingBar";
+@import "Components/NowPlayingFullscreen";
+@import "Components/SpotifyConnect";
+@import "Components/Page";
+@import "Components/Dialog";
+@import "Components/SearchPage";
+@import "Components/ArtistPage";
+@import "Components/TrackList";
+@import "Components/UserInfo";
+@import "Components/_ContextMenu";
 
 html, body {
 	min-width: 0;
