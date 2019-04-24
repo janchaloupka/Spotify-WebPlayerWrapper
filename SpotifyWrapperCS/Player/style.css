@@ -104,8 +104,12 @@ html, body {
     flex-flow: row;
 }
 
-.navBar > div:nth-of-type(2){
+/* .navBar > div:nth-of-type(3){
 	display: none;
+} */
+
+.NavBar__download-item {
+    display: none;
 }
 
 .sessionInfo {
@@ -126,6 +130,7 @@ html, body {
     display: flex;
     flex-flow: row;
     height: 100%;
+    width: 100%;
 }
 
 .navBar ul > li {
@@ -143,7 +148,6 @@ html, body {
 
 .navBar-item--with-icon-left{
 	padding: 0;
-	padding-bottom: 3px;
 }
 
 .navbar-link__text, .sessionInfo .user-link, .UserWidget__user-link {
@@ -764,10 +768,6 @@ header.artist-header .monthly-listeners{
 	margin: 4px 8px;
 }
 
-.connect-bar::after{
-	right: 160px;
-}
-
 .volume-bar{
 	width: 165px;
 }
@@ -909,8 +909,12 @@ header.artist-header .monthly-listeners{
 }
 
 .UserWidget__link {
-    padding: 12px 32px;
+    padding: 10px 32px 11px;
     width: 100%;
+}
+
+.UserWidget__container {
+    height: 56px;
 }
 
 .UserWidget__user-avatar {
@@ -924,6 +928,10 @@ header.artist-header .monthly-listeners{
 
 .compactPlayingBar .now-playing-bar {
     min-height: 48px;
+}
+
+.connect-device-list-container--is-visible {
+    margin-right: 10px;
 }
 
 .ConnectBar {
