@@ -23,7 +23,7 @@
 
 	// Search results
 	&__content {
-		padding-top: 75px;
+		padding-top: 55px;
 
 		&--empty{
 			text-align: center;
@@ -80,6 +80,7 @@
 				div a {
 					margin: 0;
 					text-align: center;
+					padding: 8px 16px;
 
 					&:before {
 						top: auto !important;

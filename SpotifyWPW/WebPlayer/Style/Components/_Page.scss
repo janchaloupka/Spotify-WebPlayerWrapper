@@ -8,7 +8,27 @@
 	padding-top: $statusBarHeight !important;
 
 	.contentSpacing {
-		padding: 0 8px;
+		padding: 0 16px;
+
+		._2SnF0IAy7I_tM-7M5iEcyT{
+			margin-left: -12px !important;
+			margin-right: -12px !important;
+
+			// Modify padding when the list is scrollable
+			&.grid--limit{
+				margin-left: -24px !important;
+				margin-right: -24px !important;
+				padding-left: 12px !important;
+
+				// 12px padding at the end of the scroll list
+				&:after{
+					content: '';
+					display: block;
+					width: 12px;
+					flex-shrink: 0;
+				}
+			}
+		}
 	}
 
 	h1 {
@@ -86,18 +106,25 @@
 				text-align: left;
 
 				a {
-					padding: 8px 16px;
+					padding: 8px 0px;
 					margin: 4px 0;
 					font-size: 15px;
 				}
 
 				a:before {
-					height: 100% !important;
-					top: 0 !important;
-					left: 0 !important;
-					bottom: auto !important;
-					width: 3px !important;
+					top: -2px !important;
+					left: -16px !important;
+					bottom: -2px !important;
+					height: auto !important;
+					width: 4px !important;
 					margin: 0 !important;
+					background: white !important;
+					border-radius: 0 3px 3px 0;
+				}
+
+				// Disable hover
+				a:not(._1-aXXBO8bQU1WTFY-7B0m-):hover{
+					opacity: 0.6;
 				}
 			}
 		}

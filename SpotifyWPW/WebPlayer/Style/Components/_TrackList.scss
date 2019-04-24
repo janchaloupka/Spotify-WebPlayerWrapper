@@ -21,7 +21,9 @@
 .TrackListHeader {
 	flex-direction: column;
 	position: relative;
-	margin-left: -8px;
+	margin-left: -16px;
+	padding-left: 16px !important;
+	padding-right: 16px !important;
 	margin-top: -$statusBarHeight;
 	width: 100vw;
 	max-width: initial;
@@ -78,6 +80,10 @@
 		}
 	}
 
+	&__entity-long-description {
+		text-align: center !important;
+	}
+
 	// "Three dots" button for context menu
 	.tracklist-header__extra-buttons {
 		& > * {
@@ -87,7 +93,7 @@
 		.react-contextmenu-wrapper {
 			display: block;
 			position: absolute;
-			right: 0;
+			right: 8px;
 			top: $statusBarHeight;
 
 			button {
@@ -100,16 +106,17 @@
 
 // Section header (ex. pages in the moods category)
 .view-header{
-	height: 250px;
-	margin: 0 -8px;
+	height: 300px;
+	margin: 0 -16px;
 	margin-top: -$statusBarHeight;
-	padding: 120px 8px;
+	padding: 120px 16px;
 	padding-top: $statusBarHeight;
 	display: flex;
 
 	&__header-title{
 		padding: 0;
 		margin: auto !important;
+		font-size: 28px !important;
 	}
 }
 
@@ -137,7 +144,7 @@
 		position: relative;
 
 		// Disable background
-		&--active, &:hover, &:active{
+		&--active, &:hover, &:active, &:focus{
 			background: none;
 		}
 

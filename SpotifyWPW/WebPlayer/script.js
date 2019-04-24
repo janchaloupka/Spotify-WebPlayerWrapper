@@ -226,10 +226,10 @@ var SettingsPageModify;
 			buttonContainer.removeChild(buttonContainer.children[1]);
 		}
 
+		// Register custom options
 		buttonContainer.appendChild(pinTileButton);
-		// Dark mode is not yet available for redesign
-		//buttonContainer.appendChild(darkModeButton);
-		//buttonContainer.appendChild(darkModeInformation);
+		buttonContainer.appendChild(darkModeButton);
+		buttonContainer.appendChild(darkModeInformation);
 		buttonContainer.appendChild(openSourceButton);
 		buttonContainer.appendChild(openSourceInformation);
 	}

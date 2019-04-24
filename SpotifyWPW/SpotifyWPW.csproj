@@ -115,6 +115,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="SpotifyWPW_StoreKey.pfx" />
+    <None Include="WebPlayer\Style\Components\_DarkMode.scss" />
     <None Include="WebPlayer\Style\Login.scss" />
     <None Include="WebPlayer\Style\Player.scss" />
     <None Include="WebPlayer\Style\Components\Page.css.map" />
