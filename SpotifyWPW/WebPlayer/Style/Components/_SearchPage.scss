@@ -1,0 +1,96 @@
+﻿/*
+	Search page
+*/
+@import "../Generic";
+
+.Search {
+	// Input box
+	&__header {
+		.SearchInputBox {
+			position: -ms-device-fixed;
+			z-index: 10;
+			left: 0;
+			padding: 8px;
+			padding-top: $statusBarHeight;
+
+			&__input {
+				margin-top: 8px;
+				font-size: 20px;
+				line-height: 36px;
+			}
+		}
+	}
+
+	// Search results
+	&__content {
+		padding-top: 55px;
+
+		&--empty{
+			text-align: center;
+		}
+
+		.top-artist{
+			display: none;
+		}
+	}
+
+	// List of searched terms
+	.search-history {
+		text-align: center;
+		
+		ul {
+			text-align: left;
+		}
+	}
+
+	// Make page navigation horizontal and scrollable
+	nav{
+		position: relative;
+		padding: 0;
+		margin: 0;
+		margin-bottom: 16px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+		&:before, &:after{
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 100%;
+			width: 15px;
+			box-shadow: inset -15px 0px 10px -5px black;
+			z-index: 5;
+		}
+
+		&:before{
+			right: auto;
+			left: 0;
+			box-shadow: inset 15px 0px 10px -5px black;
+		}
+
+		ul{
+			overflow-x: auto;
+			flex-direction: row;
+			
+			li{
+				display: flex;
+				align-items: center;
+				min-height: 48px;
+
+				div a {
+					margin: 0;
+					text-align: center;
+					padding: 8px 16px;
+
+					&:before {
+						top: auto !important;
+						bottom: 0 !important;
+						width: 50% !important;
+						left: 25% !important;
+						height: 2px !important;
+					}
+				}
+			}
+		}
+	}
+}

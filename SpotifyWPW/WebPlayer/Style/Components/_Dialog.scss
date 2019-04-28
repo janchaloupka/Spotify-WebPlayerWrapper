@@ -1,0 +1,68 @@
+﻿/*
+	Dialog
+		- Add to playlist action
+		- Create playlist action
+		- etc ...
+*/
+@import "../Generic";
+
+.dialog {
+	position: -ms-device-fixed;
+
+	.contentSpacing {
+		padding: 0 8px;
+	}
+
+	h1 {
+		font-size: 24px;
+		line-height: normal;
+	}
+	
+	// Probably centered dialog
+	._1pVwzxv-TDj4dEFi0N3B-_ {
+		justify-content: flex-start;
+
+		& > button:first-child{
+			display: none;
+		}
+	}
+
+	// Probably dialog header
+	._1bBHE1PpefnMBmUcAs3mjU {
+		flex-direction: row-reverse;
+		align-items: flex-start;
+		margin-top: 28px;
+
+		& > button {
+			margin: 0;
+			padding: 0;
+			min-width: initial;
+
+			svg{
+				height: 24px;
+			}
+		}
+
+		.asideButton-container {
+			margin: 0;
+			align-items: flex-start;
+		}
+	}
+
+	.inputBox {
+		padding: 16px 0;
+
+		&-input {
+			font-size: 24px;
+			line-height: 32px;
+		}
+	}
+
+	.container-fluid {
+		// Show 3 items per row instead of 2
+		.col-xs-6 {
+			width: calc(100% / 3);
+			padding: 0 4px;
+		}
+	}
+}

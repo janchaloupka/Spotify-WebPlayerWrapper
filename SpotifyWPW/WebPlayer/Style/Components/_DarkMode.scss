@@ -1,0 +1,31 @@
+﻿/**
+	Special style created to save the battery on AMOLED screens.
+	General idea is to fill most of the screen with true black color (#000000)
+*/
+
+.amoledDarkMode {
+	// Main background
+	._1YMukI_FrE7QRuUVSvq_Qe {
+		background: black !important;
+	}
+
+	// Now playing bar
+	.Root__now-playing-bar {
+		.now-playing-bar-container{
+			background-color: black;
+		}
+	}
+
+	// Fullscreen now playing view
+	.Root__now-playing-view{
+		.NowPlayingView, .now-playing-bar-container{
+			background: black !important;
+		}
+	}
+
+	// Search input
+	.SearchInputBox{
+		background: black !important;
+		border-bottom: 1px solid #333;
+	}
+}

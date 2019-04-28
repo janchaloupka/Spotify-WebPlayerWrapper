@@ -1,0 +1,137 @@
+﻿/*
+	Default style for all pages
+*/
+@import "../Generic";
+
+.Root__main-view {
+	padding: 0 !important;
+	padding-top: $statusBarHeight !important;
+
+	.contentSpacing {
+		padding: 0 16px;
+
+		._2SnF0IAy7I_tM-7M5iEcyT{
+			margin-left: -12px !important;
+			margin-right: -12px !important;
+
+			// Modify padding when the list is scrollable
+			&.grid--limit{
+				margin-left: -24px !important;
+				margin-right: -24px !important;
+				padding-left: 12px !important;
+
+				// 12px padding at the end of the scroll list
+				&:after{
+					content: '';
+					display: block;
+					width: 12px;
+					flex-shrink: 0;
+				}
+			}
+		}
+	}
+
+	h1 {
+		font-size: 18px;
+		line-height: normal;
+		margin: 8px 0;
+	}
+
+	// Remove play/pause button from album pictures
+	.cover-art {
+		.daily-mix-decoration, &-image {
+			filter: none !important;
+		}
+
+		&-playback {
+			display: none !important;
+		}
+	}
+
+	// Grid list (Album list, podcast list, ...)
+	.container-fluid {
+		.row {
+			//margin-left: -12px;
+		}
+	
+		// Show 3 items per row instead of 2
+		.col-xs-6 {
+			width: calc(100% / 3);
+			padding: 0 4px;
+		}
+		
+		// Item description
+		.mo-meta {
+			font-size: 11px;
+		}
+		
+		// Make grid items scrollable instead of being 
+		// hidden behind a "view more" button
+		.grid--limit {
+			overflow-x: scroll;
+			flex-wrap: nowrap;
+
+			& > div {
+				display: block;
+				flex-shrink: 0;
+				width: calc(110% / 3);
+				max-width: 150px;
+				min-width: 120px;
+			}
+		}
+	}
+
+	// Disable "view more" button 
+	.ResponsiveViewMoreButton__button{
+		display: none !important;
+		
+		&:nth-child(5){
+			display: block !important;
+		}
+	}
+
+	// Top page navigation
+	nav {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+		//background-color: rgba(0, 0, 0, 0.4);
+		margin-bottom: 16px;
+		margin-top: 8px;
+		padding-top: 0;
+
+		ul {
+			display: flex;
+			flex-direction: column;
+
+			li div {
+				text-align: left;
+
+				a {
+					padding: 8px 0px;
+					margin: 4px 0;
+					font-size: 15px;
+				}
+
+				a:before {
+					top: -2px !important;
+					left: -16px !important;
+					bottom: -2px !important;
+					height: auto !important;
+					width: 4px !important;
+					margin: 0 !important;
+					background: white !important;
+					border-radius: 0 3px 3px 0;
+				}
+
+				// Disable hover
+				a:not(._1-aXXBO8bQU1WTFY-7B0m-):hover{
+					opacity: 0.6;
+				}
+			}
+		}
+	}
+
+	// "New playlist" button
+	.asideButton {
+		display: none;
+	}
+}

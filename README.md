@@ -1,6 +1,12 @@
-# SpotifyWebWrapper
-Wrapper for Spotify Web Player. I made this app to get working Spotify working on the Windows Phone, since then I switched to Android so I abandoned this project and because Spotify has changed few things about the web player, this app is practically unsusable in its current state.
+# Spotify WPW (Web Player Wrapper)
+Formerly known as **Spotify Web Wrapper**. Unofficial spotify player based on [Spotify web player](https://open.spotify.com) created with the main goal to get working Spotify player to the Windows 10 Mobile OS. 
 
-Now I open-sourced this app so somebody can get this app working again (core functionality is okay, only layout is broken).
+App is completely open source and licenced under the MIT licence. Feel free to browse the source code, create pull requests, report bugs or make suggestions to make this app even better.
 
-**Pull requests welcomed!**
+## Recommended developer tools
+* Visual Studio 2017 
+	* Any edition with UWP package installed (with Windows 10 SDK 14393)
+* [SamRueby's CompileSass](https://marketplace.visualstudio.com/items?itemName=SamRueby.CompileSass) VS plug-in
+	* Automatic Sass compiler for Visual Studio
+	* No configuration required, plugin will automatically compile any .scss files on save
+* (optional) [ReSharper](https://www.jetbrains.com/resharper/) for better code style linting

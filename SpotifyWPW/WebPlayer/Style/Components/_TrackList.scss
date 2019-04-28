@@ -1,0 +1,200 @@
+﻿/*
+	Tracklist/Songlist and all related pages 
+	(Playlist page, Album page, Podcast page, ...)
+*/
+@import "../Generic";
+
+// This elemet should have class ".row" but for some
+// reason it's missing, so this fixes the alignment issue
+// Found in the "daily mix" playlist and some other playlists
+._8jlRJQhxjj9yLAo-bjyu8,
+._3Ne2V0FIdJYa1PPPc81hFX {
+	margin: 0px -16px;
+}
+
+.contentSpacing > .content,
+.playlist {
+	padding: 0;
+}
+
+// Album/playlist info (art, name, author)
+.TrackListHeader {
+	flex-direction: column;
+	position: relative;
+	margin-left: -16px;
+	padding-left: 16px !important;
+	padding-right: 16px !important;
+	margin-top: -$statusBarHeight;
+	width: 100vw;
+	max-width: initial;
+	margin-bottom: 48px;
+
+	.media-object {
+		position: static;
+		height: 0;
+	}
+
+	// Album art
+	.cover-art {
+		position: static;
+
+		&.shadow{
+			box-shadow: none;
+			background: none;
+			height: 0;
+			width: 0;
+		}
+
+		&-playback, .icon {
+			display: none !important;
+		}
+
+		&-image, .daily-mix-decoration{
+			filter: brightness(0.2) !important;
+		}
+
+		&-image {
+			left: 0;
+			top: 0;
+		}
+	}
+	
+	// Main info
+	&__body {
+		margin: 0;
+		margin-top: 80px;
+		margin-bottom: 20px;
+		width: auto;
+		text-align: center;
+		z-index: 2;
+	}
+
+	// Action buttons (mainly play/pause button)
+	&__children {
+		& > .TrackListHeader__button {
+			position: absolute;
+			bottom: -20px;
+			left: 0;
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	&__entity-long-description {
+		text-align: center !important;
+	}
+
+	// "Three dots" button for context menu
+	.tracklist-header__extra-buttons {
+		& > * {
+			display: none;
+		}
+
+		.react-contextmenu-wrapper {
+			display: block;
+			position: absolute;
+			right: 8px;
+			top: $statusBarHeight;
+
+			button {
+				padding: 0;
+				margin: 0;
+			}
+		}
+	}
+}
+
+// Section header (ex. pages in the moods category)
+.view-header{
+	height: 300px;
+	margin: 0 -16px;
+	margin-top: -$statusBarHeight;
+	padding: 120px 16px;
+	padding-top: $statusBarHeight;
+	display: flex;
+
+	&__header-title{
+		padding: 0;
+		margin: auto !important;
+		font-size: 28px !important;
+	}
+}
+
+// List of songs
+.tracklist {
+	// Make play/pause button cover the entire row so it can
+	// be activated just by tapping on the row
+	&-play-pause {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: block !important;
+		margin: 0;
+		z-index: 10;
+		
+		* {
+			display: none;
+		}
+	}
+
+	// Single list item
+	.tracklist-row {
+		position: relative;
+
+		// Disable background
+		&--active, &:hover, &:active, &:focus{
+			background: none;
+		}
+
+		.tracklist-col {
+			// Left icon and playback status
+			&.position-outer{
+				width: 0;
+				padding: 0;
+				margin: 0;
+
+				* {
+					display: none;
+				}
+			}
+			
+			// "Three dots" button
+			&.more {
+				padding-right: 0;
+				display: flex;
+				min-width: initial;
+				z-index: 11;
+
+				.tracklist-top-align{
+					display: flex;
+					margin-top: 0;
+				}
+
+				.react-contextmenu-wrapper {
+					display: flex;
+				}
+
+				button{
+					min-width: 40px;
+					text-align: right;
+				}
+			}
+
+			&-duration {
+				display: none;
+			}
+
+			.tracklist-name{
+				font-weight: 400;
+			}
+
+			// Fix for issue #1 (missing font glyphs)
+			.TrackListRow__episode-release-date,
+			.track-row__episode-date {
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			}
+		}
+	}
+}

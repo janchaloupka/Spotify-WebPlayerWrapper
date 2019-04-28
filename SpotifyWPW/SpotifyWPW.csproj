@@ -7,8 +7,8 @@
     <ProjectGuid>{6DACA282-3B68-4891-94AB-EAF2FBED5B02}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SpotifyWrapperCS</RootNamespace>
-    <AssemblyName>SpotifyWrapperCS</AssemblyName>
+    <RootNamespace>SpotifyWPW</RootNamespace>
+    <AssemblyName>SpotifyWPW</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.14393.0</TargetPlatformVersion>
@@ -17,12 +17,12 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
-    <PackageCertificateKeyFile>SpotifyWrapperCS_StoreKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>SpotifyWPW_StoreKey.pfx</PackageCertificateKeyFile>
     <PackageCertificateThumbprint>8B57546B5908E31D742E29D7D0194003E3BEDB92</PackageCertificateThumbprint>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
-    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
-    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
+    <AppxBundlePlatforms>x86|arm</AppxBundlePlatforms>
     <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>
     <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
   </PropertyGroup>
@@ -105,13 +105,32 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NoInternetDialog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransparentTile.cs" />
+    <Compile Include="SystemMediaControls.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="SpotifyWrapperCS_StoreKey.pfx" />
+    <None Include="SpotifyWPW_StoreKey.pfx" />
+    <None Include="WebPlayer\Style\Components\_DarkMode.scss" />
+    <None Include="WebPlayer\Style\Login.scss" />
+    <None Include="WebPlayer\Style\Player.scss" />
+    <None Include="WebPlayer\Style\Components\Page.css.map" />
+    <None Include="WebPlayer\Style\Components\_ArtistPage.scss" />
+    <None Include="WebPlayer\Style\Components\_ContextMenu.scss" />
+    <None Include="WebPlayer\Style\Components\_Dialog.scss" />
+    <None Include="WebPlayer\Style\Components\_NavBar.scss" />
+    <None Include="WebPlayer\Style\Components\_NowPlayingBar.scss" />
+    <None Include="WebPlayer\Style\Components\_NowPlayingFullscreen.scss" />
+    <None Include="WebPlayer\Style\Components\_Page.scss" />
+    <None Include="WebPlayer\Style\Components\_SearchPage.scss" />
+    <None Include="WebPlayer\Style\Components\_SpotifyConnect.scss" />
+    <None Include="WebPlayer\Style\Components\_TrackList.scss" />
+    <None Include="WebPlayer\Style\Components\_UserInfo.scss" />
+    <None Include="WebPlayer\Style\_Generic.scss" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.scale-100.png" />
@@ -139,11 +158,12 @@
     <Content Include="Assets\Package.scale-150.png" />
     <Content Include="Assets\Package.scale-200.png" />
     <Content Include="Assets\Package.scale-400.png" />
+    <Content Include="WebPlayer\script.js" />
+    <Content Include="WebPlayer\silence.mp3" />
+    <Content Include="WebPlayer\Style\Login.min.css" />
+    <Content Include="WebPlayer\Style\Player.min.css" />
+    <Content Include="WebPlayer\Style\Components\Page.min.css" />
     <None Include="Package.StoreAssociation.xml" />
-    <Content Include="Player\script.js" />
-    <Content Include="Player\silence.mp3" />
-    <Content Include="Player\style.css" />
-    <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -165,6 +185,7 @@
       <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
