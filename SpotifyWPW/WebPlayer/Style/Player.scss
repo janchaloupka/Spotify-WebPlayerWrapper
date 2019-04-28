@@ -32,20 +32,25 @@ html, body {
 }
 
 // Change ad layout
-.AdsContainer{
-	width: 100%;
-	height: 45px;
-	bottom: 100px;
-	padding: 0;
+.Root__ads-container {
+    z-index: 20; // Prevents Three-dot buttons from overlapping the ad banner
+}
 
-	&__inner{
-		margin: 0 auto;
+.AdsContainer {
+    width: 100%;
+    height: 52px;
+    bottom: 100px;
+    padding: 0 1px 0 0; // Fills 1px gap between the banner and the right edge on mobile
+    position: -ms-device-fixed; // Prevent rubber scrolling
 
-		iframe{
-			transform: scale(0.5);
-			transform-origin: top left;
-		}
-	}
+    &__inner {
+        margin: 0 auto;
+
+        iframe {
+            transform: scale(0.565); // More precise banner width
+            transform-origin: top left;
+        }
+    }
 }
 
 // Disable focus effect

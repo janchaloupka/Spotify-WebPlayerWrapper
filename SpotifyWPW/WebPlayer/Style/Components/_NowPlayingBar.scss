@@ -99,9 +99,9 @@
 
 	// Trackbar
 	.playback-bar {
-		position: absolute;
+		position: -ms-device-fixed; // Prevent rubber scrolling
 		left: 0;
-		top: 0;
+		bottom: 99px;
 		width: 100%;
 
 		// Hide time info

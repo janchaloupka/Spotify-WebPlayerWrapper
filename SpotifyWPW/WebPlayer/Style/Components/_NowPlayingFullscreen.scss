@@ -47,6 +47,10 @@
 				text-align: center;
 				justify-content: center;
 
+                .NowPlayingView__playing-context {
+                    margin-top: $statusBarHeight; // Move Playlist Info below the Status Bar
+                }
+
 				& > button {
 					display: none;
 				}
@@ -283,6 +287,8 @@
 					bottom: 44px;
 					z-index: 1010;
 					width: initial;
+                    max-width: 350px;
+                    margin: auto;
 
 					.progress-bar{
 						height: 20px;

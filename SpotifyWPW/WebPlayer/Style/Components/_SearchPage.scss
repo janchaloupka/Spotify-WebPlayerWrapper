@@ -25,6 +25,10 @@
 	&__content {
 		padding-top: 55px;
 
+        > nav {
+            height: 50px; // Prevents Search Result titlebar from shrinking while no results are shown
+        }
+
 		&--empty{
 			text-align: center;
 		}

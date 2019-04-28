@@ -11,7 +11,7 @@
 .ConnectBar {
 	position: -ms-device-fixed !important;
 	width: 100%;
-	left: 28px;
+	left: 32px;
 	bottom: 16px;
 	background-color: transparent;
 	text-align: left !important;
@@ -21,7 +21,8 @@
 	color: #1db954;
 
 	// Center conenct bar when in fullscreen playback view
-	padding-left: calc(50vw - 200px);
+	// padding-left: calc(50vw - 200px); - This doesn't work properly on mobile for some reason, making the button invisible
+    padding: 0;
 
 	.nowPlayingViewHidden & {
 		position: absolute !important;
@@ -105,6 +106,7 @@
 
 		&-item{
 			background: inherit;
+            padding-left: 22px; // Slightly align Connect device list
 		}
 	}
 }

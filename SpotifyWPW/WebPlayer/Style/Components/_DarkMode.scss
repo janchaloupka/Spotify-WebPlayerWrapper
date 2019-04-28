@@ -9,6 +9,11 @@
 		background: black !important;
 	}
 
+    // Remaining background
+    > div {
+        background-color: black;
+    }
+
 	// Now playing bar
 	.Root__now-playing-bar {
 		.now-playing-bar-container{
@@ -28,4 +33,9 @@
 		background: black !important;
 		border-bottom: 1px solid #333;
 	}
+
+    // Artist Pages
+    .artist, .artist-music, .artist-singles, .artist-appears-on, .related-artists, .ArtistAbout__container {
+        background-color: black;
+    }
 }
