@@ -99,7 +99,7 @@
 
 	// Trackbar
 	.playback-bar {
-		position: -ms-device-fixed; // Prevent rubber scrolling
+		position: -ms-device-fixed; // Prevents Playback Progress Bar from moving to the top during Fullscreen NowPlaying Bar opening animation
 		left: 0;
 		bottom: 99px;
 		width: 100%;
