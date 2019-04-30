@@ -12,12 +12,17 @@
 	padding: 0;
 	background: black;
 
+    // Remove link for app download
+    .NavBar__download-item {
+        display: none;
+    }
+
 	.navBar {
 		padding: 0;
 		width: 100%;
 
-		// Remove links for app download, spotify logo and recent song list
-		.NavBar__download-item, &-header, .recently-played {
+		// Remove links for spotify logo and recent song list
+		&-header, .recently-played {
 			display: none;
 		}
 
