@@ -77,7 +77,7 @@
 				display: none;
 			}
 
-			.Root.is-connectBarVisible &--is-visible ~ .volume-bar{
+			&--is-visible ~ .volume-bar{
 				display: flex !important;
 			}
 		}
