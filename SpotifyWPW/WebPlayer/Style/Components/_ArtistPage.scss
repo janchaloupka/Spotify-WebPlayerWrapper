@@ -13,6 +13,10 @@
 		padding-top: 60px;
 	}
 
+    .artist-header {
+        margin-top: -20px; // Make the top banner fill the Status bar gap
+    }
+
 	// Artist name
 	.artist-header h1 {
 		font-size: 30px !important;
@@ -40,7 +44,7 @@
 		.react-contextmenu-wrapper {
 			display: block;
 			position: absolute;
-			right: 0;
+			right: 8px; // Align the button the same way it's aligned in Tracklist
 			top: $statusBarHeight;
 
 			button {

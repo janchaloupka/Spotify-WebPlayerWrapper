@@ -371,7 +371,7 @@ function EndMoveNowPlayingView(e) {
 	MouseStart = -1;
 
 	if (LastPos / window.innerHeight > 0.15) {
-		document.body.classList.add("compactPlayingBar");
+		document.body.classList.add(HIDE_NOW_PLAYING_VIEW);
 	}
 }
 
