@@ -46,7 +46,7 @@
 			display: block;
 			position: absolute;
 			right: 8px; // Align the button the same way it's aligned in Tracklist
-			top: $statusBarHeight;
+			top: 40px;
 
 			button {
 				padding: 0;
@@ -62,6 +62,7 @@
 
 		&__content {
 			flex-direction: column;
+			margin-top: -20px; // Align the Biography content with other tabs
 		}
 
 		&__insights {
