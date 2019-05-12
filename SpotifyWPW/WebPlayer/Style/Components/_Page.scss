@@ -3,9 +3,20 @@
 */
 @import "../Generic";
 
+.Root__top-container {
+	display: initial; // Fixes width for some pages on Desktop that are marked as grid
+}
+
 .Root__main-view {
 	padding: 0 !important;
-	padding-top: $statusBarHeight !important;
+//	padding-top: $statusBarHeight !important; // Global padding messes up the image banners now
+
+	.main-view-container {
+		z-index: 0; // Prevent NowPlaying View from creating garbage on mobile after minimizing
+		._11pfm-p6kRU6CrLDyLhi3a {
+			margin-top: $statusBarHeight; // Move Home and Library content below the Status Bar
+		}
+	}
 
 	.contentSpacing {
 		padding: 0 16px;

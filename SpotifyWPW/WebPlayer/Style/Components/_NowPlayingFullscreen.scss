@@ -48,7 +48,8 @@
 				justify-content: center;
 
                 .NowPlayingView__playing-context {
-                    margin-top: $statusBarHeight; // Move Playlist Info below the Status Bar
+					margin: $statusBarHeight 15px 0 15px; // Move Playlist Info below the Status Bar and properly wrap it around the edges
+					height: 32px; // Prevent long Playlist names from expanding upwards
                 }
 
 				& > button {

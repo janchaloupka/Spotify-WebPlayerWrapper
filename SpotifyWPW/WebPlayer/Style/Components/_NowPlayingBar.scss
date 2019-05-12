@@ -8,6 +8,7 @@
 	position: static;
 	bottom: 52px; // Navbar height
 	height: 48px;
+	z-index: 100; // Makes NowPlaying Bar clickable
 	background-color: black;
 
 	.nowPlayingViewHidden & {
