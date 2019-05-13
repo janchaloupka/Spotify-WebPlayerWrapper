@@ -18,6 +18,51 @@
 		}
 	}
 
+	// Podcast episode description page
+	._2gwrTZfYN8-9w_lJJQs6-J {
+		padding: 40px 24px;
+		padding-bottom: 150px;
+
+		// Header (art, play button and descriptions)
+		._1EhXu-6E7989P5tH_gJXI_ {
+			display: flex;
+			flex-direction: column;
+			
+			& > img {
+				max-width: 300px;
+				width: 70%;
+				margin: 0 auto;
+			}
+
+			// Play button container
+			._1Pn9dKvC6fArYF-v0wfhvS {
+				padding: 16px 0;
+
+				// For some reason this button does not use the standard button style
+				button {
+					font-size: 12px;
+					line-height: 18px;
+					padding: 11px 44px;
+					font-weight: 700;
+				}
+			}
+
+			// Description container
+			._1xbSWNm9t140jDFNFxE0to._3NOo5NqspC9kHM8x_oJdzY {
+				// Unwrap description text
+				._1EpCyCQkO1mWZNW-ZQ-6l- {
+					height: auto !important;
+					mask-image: none !important;
+				}
+
+				// "Read more" button
+				.iiMvAyhkozP8HoC4dzGy1 {
+					display: none !important;
+				}
+			}
+		}
+	}
+
 	.contentSpacing {
 		padding: 0 16px;
 
@@ -106,8 +151,7 @@
 		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 		//background-color: rgba(0, 0, 0, 0.4);
 		margin-bottom: 16px;
-		margin-top: 8px;
-		padding-top: 0;
+		padding-top: 8px;
 
 		ul {
 			display: flex;
