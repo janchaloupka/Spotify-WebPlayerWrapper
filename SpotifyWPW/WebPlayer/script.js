@@ -217,7 +217,7 @@ var SettingsPageModify;
 
 	// Modify user (settings) page
 	SettingsPageModify = function() {
-		const buttonContainer = document.querySelector(".main-view-container__content .button-group--vertical");
+		const buttonContainer = document.querySelector(".main-view-container__scroll-node .button-group--vertical");
 
 		if (!buttonContainer || pinTileButton.parentNode === buttonContainer) return;
 
