@@ -31,6 +31,11 @@ html, body {
 	padding-top: $statusBarHeight !important;
 }
 
+// Unsupported browser warning
+._1jYOYS8ESgPvr4iUYHHmz8 {
+	display: none;
+}
+
 // Change ad layout
 .Root__ads-container {
     z-index: 20; // Prevents Three-dot buttons from overlapping the ad banner
