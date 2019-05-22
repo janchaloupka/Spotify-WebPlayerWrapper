@@ -13,9 +13,12 @@
 
 	.main-view-container {
 		z-index: 0; // Prevent NowPlaying View from creating garbage on mobile after minimizing
-		._11pfm-p6kRU6CrLDyLhi3a {
-			margin-top: $statusBarHeight; // Move Home and Library content below the Status Bar
-		}
+        .main-view-container__scroll-node {
+            padding-bottom: 130px; // Raise bottom content hidden behind controls
+			._11pfm-p6kRU6CrLDyLhi3a {
+				margin-top: $statusBarHeight; // Move Home and Library content below the Status Bar
+			}
+        }
 	}
 
 	// Podcast episode description page
@@ -90,7 +93,7 @@
 	h1 {
 		font-size: 18px;
 		line-height: normal;
-		margin: 8px 0;
+		margin: 20px 0; // Move Play Queue text under the status bar
 	}
 
 	// Remove play/pause button from album pictures
