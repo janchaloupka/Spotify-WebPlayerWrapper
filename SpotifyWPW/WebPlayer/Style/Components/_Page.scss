@@ -13,12 +13,17 @@
 
 	.main-view-container {
 		z-index: 0; // Prevent NowPlaying View from creating garbage on mobile after minimizing
-        .main-view-container__scroll-node {
-            padding-bottom: 130px; // Raise bottom content hidden behind controls
+		.main-view-container__scroll-node {
+			padding-bottom: 130px; // Raise bottom content hidden behind controls
 			._11pfm-p6kRU6CrLDyLhi3a {
 				margin-top: $statusBarHeight; // Move Home and Library content below the Status Bar
 			}
-        }
+
+			// Hide the infinite loading circle
+			._3UiTf7sJvnMMlRcSCZre-V {
+				display: none;
+			}
+		}
 	}
 
 	// Podcast episode description page
