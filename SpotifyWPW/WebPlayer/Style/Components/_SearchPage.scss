@@ -49,6 +49,11 @@
 		
 		ul {
 			text-align: left;
+
+			// Restore Search result spacing
+			h1 {
+				margin: 0;
+			}
 		}
 	}
 
