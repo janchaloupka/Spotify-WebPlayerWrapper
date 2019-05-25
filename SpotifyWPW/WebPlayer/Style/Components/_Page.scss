@@ -28,13 +28,14 @@
 
 	// Podcast episode description page
 	._2gwrTZfYN8-9w_lJJQs6-J {
-		padding: 40px 24px;
-		padding-bottom: 150px;
+		padding: 40px 0;
+	//	padding-bottom: 150px;
 
 		// Header (art, play button and descriptions)
 		._1EhXu-6E7989P5tH_gJXI_ {
 			display: flex;
 			flex-direction: column;
+			padding: 0 24px;
 			
 			& > img {
 				max-width: 300px;
@@ -78,6 +79,29 @@
 		// Fix for missing font glyphs in You May Also Like section
 		._1-e6DtaKMuZeuD7QAoow-K {
 			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+
+		// Remove unneeded padding for You May Also Like section
+		._2pQl2ltKQQEKBX18Us_RJf {
+			padding-top: 0;
+
+			// You May Also Like text
+			h2 {
+				font-size: 22px;
+				text-align: center;
+			}
+
+			// Convert You May Also Like section into horizontal scrolling
+			._2Sf-9i8rxxP0vzBjZ-XUpC {
+				display: flex;
+				overflow-x: scroll;
+				flex-wrap: nowrap;
+
+				// Remove background for You May Also Like thumbnails
+				._1Auz6MhtRs4C27k356s5a4 {
+					background: none;
+				}
+			}
 		}
 	}
 
