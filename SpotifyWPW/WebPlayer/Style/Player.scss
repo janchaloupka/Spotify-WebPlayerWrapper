@@ -74,6 +74,8 @@ html, body {
 
 // Green playlist play/pause button
 .btn{
+	font-weight: var(--glue-font-weight-black);
+
 	&.green:focus, &.green:hover{
 		background-color: #1db954 !important;
 	}

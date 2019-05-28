@@ -14,7 +14,7 @@
 	.main-view-container {
 		z-index: 0; // Prevent NowPlaying View from creating garbage on mobile after minimizing
 		.main-view-container__scroll-node {
-			padding-bottom: 130px; // Raise bottom content hidden behind controls
+			padding-bottom: 108px; // Raise bottom content hidden behind controls
 			._11pfm-p6kRU6CrLDyLhi3a {
 				margin-top: $statusBarHeight; // Move Home and Library content below the Status Bar
 			}
@@ -52,7 +52,7 @@
 				//	font-size: 12px;
 					line-height: 18px;
 					padding: 11px 44px;
-					font-weight: var(--glue-font-weight-normal);
+					font-weight: var(--glue-font-weight-black);
 					min-width: 130px;
 				}
 			}
@@ -60,6 +60,9 @@
 			// Center episode title 1
 			h1 {
 				text-align: center;
+				font-size: 28px;
+				font-weight: var(--glue-font-weight-black);
+				margin: 0;
 			}
 
 			// Center episode date and duration
@@ -67,16 +70,18 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
+				margin-top: 8px;
 
 				// Center episode title 2
 				h2 {
 					text-align: center;
+					font-weight: var(--glue-font-weight-normal);
 				}
 
 				// Fix for missing font glyphs
 				._2mShaXz92UAVInSvwS9FAh {
 					font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-					font-weight: 400;
+					font-weight: var(--glue-font-weight-normal);
 				}
 			}
 
@@ -255,4 +260,13 @@
 	.asideButton {
 		display: none;
 	}
+}
+
+// Raise bottom content above the ad banner when it is visible
+.Root__main-view--has-ads {
+    .main-view-container {
+        .main-view-container__scroll-node {
+            padding-bottom: 160px;
+        }
+    }
 }
