@@ -9,6 +9,13 @@
 		background: black !important;
 	}
 
+	// Padded background
+	.Root__main-view .main-view-container {
+		.main-view-container__scroll-node {
+			background: black;
+		}
+	}
+
     // Remaining background
     > div {
         background-color: black;

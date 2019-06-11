@@ -13,20 +13,29 @@
 
 	.main-view-container {
 		z-index: 0; // Prevent NowPlaying View from creating garbage on mobile after minimizing
-		._11pfm-p6kRU6CrLDyLhi3a {
-			margin-top: $statusBarHeight; // Move Home and Library content below the Status Bar
+		.main-view-container__scroll-node {
+			padding-bottom: 108px; // Raise bottom content hidden behind controls
+			._11pfm-p6kRU6CrLDyLhi3a {
+				margin-top: $statusBarHeight; // Move Home and Library content below the Status Bar
+			}
+
+			// Hide the infinite loading circle
+			._3UiTf7sJvnMMlRcSCZre-V {
+				display: none;
+			}
 		}
 	}
 
 	// Podcast episode description page
 	._2gwrTZfYN8-9w_lJJQs6-J {
-		padding: 40px 24px;
-		padding-bottom: 150px;
+		padding: 40px 0;
+	//	padding-bottom: 150px;
 
 		// Header (art, play button and descriptions)
 		._1EhXu-6E7989P5tH_gJXI_ {
 			display: flex;
 			flex-direction: column;
+			padding: 0 24px;
 			
 			& > img {
 				max-width: 300px;
@@ -40,10 +49,39 @@
 
 				// For some reason this button does not use the standard button style
 				button {
-					font-size: 12px;
+				//	font-size: 12px;
 					line-height: 18px;
 					padding: 11px 44px;
-					font-weight: 700;
+					font-weight: var(--glue-font-weight-black);
+					min-width: 130px;
+				}
+			}
+
+			// Center episode title 1
+			h1 {
+				text-align: center;
+				font-size: 28px;
+				font-weight: var(--glue-font-weight-black);
+				margin: 0;
+			}
+
+			// Center episode date and duration
+			._3Eww95sj_r_sRJXqgFcjxU {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-top: 8px;
+
+				// Center episode title 2
+				h2 {
+					text-align: center;
+					font-size: 15px;
+				}
+
+				// Fix for missing font glyphs
+				._2mShaXz92UAVInSvwS9FAh {
+					font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+					font-weight: var(--glue-font-weight-normal);
 				}
 			}
 
@@ -53,11 +91,44 @@
 				._1EpCyCQkO1mWZNW-ZQ-6l- {
 					height: auto !important;
 					mask-image: none !important;
+
+                    // Description font
+                    ._5HLGmANFIK7to55ZbGSL4 {
+                        font-weight: var(--glue-font-weight-normal);
+                    }
 				}
 
 				// "Read more" button
 				.iiMvAyhkozP8HoC4dzGy1 {
 					display: none !important;
+				}
+			}
+		}
+
+		// Fix for missing font glyphs in You May Also Like section
+		._1-e6DtaKMuZeuD7QAoow-K {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+
+		// Remove unneeded padding for You May Also Like section
+		._2pQl2ltKQQEKBX18Us_RJf {
+			padding-top: 0;
+
+			// You May Also Like text
+			h2 {
+				font-size: 22px;
+				text-align: center;
+			}
+
+			// Convert You May Also Like section into horizontal scrolling
+			._2Sf-9i8rxxP0vzBjZ-XUpC {
+				display: flex;
+				overflow-x: scroll;
+				flex-wrap: nowrap;
+
+				// Remove background for You May Also Like thumbnails
+				._1Auz6MhtRs4C27k356s5a4 {
+					background: none;
 				}
 			}
 		}
@@ -90,7 +161,7 @@
 	h1 {
 		font-size: 18px;
 		line-height: normal;
-		margin: 8px 0;
+		margin: 20px 0; // Move Play Queue text under the status bar
 	}
 
 	// Remove play/pause button from album pictures
@@ -189,4 +260,13 @@
 	.asideButton {
 		display: none;
 	}
+}
+
+// Raise bottom content above the ad banner when it is visible
+.Root__main-view--has-ads {
+    .main-view-container {
+        .main-view-container__scroll-node {
+            padding-bottom: 160px;
+        }
+    }
 }
