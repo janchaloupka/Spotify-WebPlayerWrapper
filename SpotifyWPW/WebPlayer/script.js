@@ -62,7 +62,7 @@ const DARK_MODE = "amoledDarkMode";
 		}
 
 		// Show settings button on the library view
-		if (document.location.pathname.indexOf("/collection/") >= 0) {
+		if (document.location.pathname.indexOf("/collection/") >= 0 || document.location.pathname.indexOf("/made-for-you") >= 0) {
 			document.body.classList.add(SHOW_SETTINGS_BUTTON);
 		} else {
 			document.body.classList.remove(SHOW_SETTINGS_BUTTON);

@@ -42,10 +42,10 @@ html, body {
 }
 
 .AdsContainer {
-    width: auto;
+	width: 100%;
     height: 52px;
     bottom: 100px;
-    padding: 0 1px 0 0; // Fills 1px gap between the banner and the right edge on mobile
+	padding: 0;
     position: -ms-device-fixed; // Prevent rubber scrolling
 
     &__inner {
@@ -53,7 +53,7 @@ html, body {
 
         iframe {
             transform: scale(0.565); // More precise banner width
-            transform-origin: top left;
+			transform-origin: top center;
         }
     }
 }
