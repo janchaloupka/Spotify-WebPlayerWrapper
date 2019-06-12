@@ -28,9 +28,20 @@ const DARK_MODE = "amoledDarkMode";
 	}
 })();
 
+/**
+ * Append and apply CSS content
+ * 
+ * @param {string} cssContent
+ *	String of CSS rules to be applied
+ */
+function AppendCustomStyle(cssContent) {
+	const styleElement = document.createElement("style");
+	styleElement.appendChild(document.createTextNode(cssContent));
+	document.head.appendChild(styleElement);
+}
 
 /**
- * Apply custom styles and enable mobile mode
+ * Request custom styles load and enable mobile mode
  */
 (function customStyles() {
 	// Enable mobile mode
@@ -39,11 +50,8 @@ const DARK_MODE = "amoledDarkMode";
 	metaViewport.content = "width=device-width;initial-scale=1";
 	document.head.appendChild(metaViewport);
 
-	// Load CSS
-	const customStyle = document.createElement("link");
-	customStyle.rel = "stylesheet";
-	customStyle.href = "ms-appx-web:///WebPlayer/Style/Player.min.css";
-	document.head.appendChild(customStyle);
+	// Request CSS load
+	external.notify("LoadCustomStyles");
 })();
 
 

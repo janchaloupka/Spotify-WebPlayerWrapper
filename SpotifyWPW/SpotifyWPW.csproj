@@ -118,7 +118,6 @@
     <None Include="WebPlayer\Style\Components\_DarkMode.scss" />
     <None Include="WebPlayer\Style\Login.scss" />
     <None Include="WebPlayer\Style\Player.scss" />
-    <None Include="WebPlayer\Style\Components\Page.css.map" />
     <None Include="WebPlayer\Style\Components\_ArtistPage.scss" />
     <None Include="WebPlayer\Style\Components\_ContextMenu.scss" />
     <None Include="WebPlayer\Style\Components\_Dialog.scss" />
@@ -162,7 +161,6 @@
     <Content Include="WebPlayer\silence.mp3" />
     <Content Include="WebPlayer\Style\Login.min.css" />
     <Content Include="WebPlayer\Style\Player.min.css" />
-    <Content Include="WebPlayer\Style\Components\Page.min.css" />
     <None Include="Package.StoreAssociation.xml" />
   </ItemGroup>
   <ItemGroup>

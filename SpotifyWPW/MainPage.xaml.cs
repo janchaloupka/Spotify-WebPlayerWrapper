@@ -148,12 +148,16 @@ namespace SpotifyWPW
 		/// <summary>
 		/// Receive control messages from the web player
 		/// </summary>
-		public void ScriptNotify(object sender, NotifyEventArgs e)
+		public async void ScriptNotify(object sender, NotifyEventArgs e)
 		{
 			var data = e.Value.Split('\n');
 
 			switch (data[0])
 			{
+				// Custom styles are ready to be loaded
+				case "LoadCustomStyles":
+					await WebPlayer.InvokeScriptAsync("AppendCustomStyle", new[] { File.ReadAllText("WebPlayer/Style/Player.min.css")});
+					break;
 				// Song info change
 				case "SystemMediaControlsSong":
 					if (data.Length < 3) return;
