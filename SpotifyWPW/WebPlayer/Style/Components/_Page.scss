@@ -19,8 +19,8 @@
 				margin-top: $statusBarHeight; // Move Home and Library content below the Status Bar
 			}
 
-			// Hide the infinite loading circle
-			._3UiTf7sJvnMMlRcSCZre-V {
+			// Hide the infinite loading div creating unnecessary space at the bottom
+			div[style="padding: 10px 0px 30px;"] {
 				display: none;
 			}
 		}
@@ -28,7 +28,7 @@
 
 	// Podcast episode description page
 	._2gwrTZfYN8-9w_lJJQs6-J {
-		padding: 40px 0;
+		padding: 40px 0 0;
 	//	padding-bottom: 150px;
 
 		// Header (art, play button and descriptions)
@@ -105,17 +105,14 @@
 			}
 		}
 
-		// Fix for missing font glyphs in You May Also Like section
-		._1-e6DtaKMuZeuD7QAoow-K {
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-		}
+// You May Also Like section
 
 		// Remove unneeded padding for You May Also Like section
 		._2pQl2ltKQQEKBX18Us_RJf {
 			padding-top: 0;
 
 			// You May Also Like text
-			h2 {
+			._198eLrjukEz34xHlH9mAg3 {
 				font-size: 22px;
 				text-align: center;
 			}
@@ -127,8 +124,25 @@
 				flex-wrap: nowrap;
 
 				// Remove background for You May Also Like thumbnails
-				._1Auz6MhtRs4C27k356s5a4 {
+				._2Ntqi7qecYmki6xI-INBxm {
 					background: none;
+
+					// Episode description
+					.jWbTf5mYRdUXz0agGVwr9 {
+						text-align: center;
+						width: 128px;
+					}
+
+					// Fix for missing font glyphs in You May Also Like section
+					._2Y3snrljh1V4imam-96Q7C {
+						font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+						text-align: center;
+					}
+
+					// Hide long episode description
+		 			._3fdhwT1FLUKpSTVz_8ymjl {
+						display: none;
+					}
 				}
 			}
 		}
@@ -264,9 +278,14 @@
 
 // Raise bottom content above the ad banner when it is visible
 .Root__main-view--has-ads {
-    .main-view-container {
-        .main-view-container__scroll-node {
-            padding-bottom: 160px;
-        }
-    }
+	.main-view-container {
+		.main-view-container__scroll-node {
+			padding-bottom: 160px;
+		}
+	}
+}
+
+// Remove hidden element
+._2e3_4eQ4S9dQYcoa19KBG8 {
+	display: none;
 }
