@@ -234,6 +234,7 @@
 		.grid--limit {
 			overflow-x: scroll;
 			flex-wrap: nowrap;
+			margin-right: -24px;
 
 			& > div {
 				display: block;
