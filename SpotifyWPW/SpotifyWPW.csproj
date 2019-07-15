@@ -20,7 +20,7 @@
     <PackageCertificateKeyFile>SpotifyWPW_StoreKey.pfx</PackageCertificateKeyFile>
     <PackageCertificateThumbprint>8B57546B5908E31D742E29D7D0194003E3BEDB92</PackageCertificateThumbprint>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
-    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|arm</AppxBundlePlatforms>
     <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>

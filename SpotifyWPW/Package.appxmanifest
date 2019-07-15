@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" IgnorableNamespaces="uap mp uap3">
-  <Identity Name="34659janch32.SpotifyWebWrapper" Publisher="CN=075C9BB6-03C5-4339-BE4D-ADD882DD153B" Version="2.0.5.0" />
+  <Identity Name="34659janch32.SpotifyWebWrapper" Publisher="CN=075C9BB6-03C5-4339-BE4D-ADD882DD153B" Version="2.0.7.0" />
   <mp:PhoneIdentity PhoneProductId="d0d0508a-0cbd-4a7c-9b5e-bad333ae7f70" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Spotify WPW</DisplayName>
