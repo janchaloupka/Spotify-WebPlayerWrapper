@@ -211,6 +211,7 @@
 		.grid--limit {
 			overflow-x: scroll;
 			flex-wrap: nowrap;
+			margin-right: -24px;
 
 			& > div {
 				display: block;
@@ -237,6 +238,7 @@
 		//background-color: rgba(0, 0, 0, 0.4);
 		margin-bottom: 16px;
 		padding-top: 8px;
+		margin-top: $statusBarHeight;
 
 		ul {
 			display: flex;

@@ -21,8 +21,8 @@
 		padding: 0;
 		width: 100%;
 
-		// Remove links for spotify logo and recent song list
-		&-header, .recently-played {
+		// Remove spotify logo and list of recent songs
+		&-header, .Rootlist {
 			display: none;
 		}
 
