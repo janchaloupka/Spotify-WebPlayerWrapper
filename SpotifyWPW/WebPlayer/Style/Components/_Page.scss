@@ -4,35 +4,46 @@
 @import "../Generic";
 
 .Root__top-container {
-	display: initial; // Fixes width for some pages on Desktop that are marked as grid
+	display: flex; // Required for the dynamic scrolling to function properly
 }
 
 .Root__main-view {
-	padding: 0 !important;
+	padding: 0 0 100px 0 !important;
+	margin-top: -50px; // Fixes incorrectly lowered content on Mobile, unfortunately breaks properly positioned content on Desktop
 //	padding-top: $statusBarHeight !important; // Global padding messes up the image banners now
 
 	.main-view-container {
 		z-index: 0; // Prevent NowPlaying View from creating garbage on mobile after minimizing
-		.main-view-container__scroll-node {
-			padding-bottom: 108px; // Raise bottom content hidden behind controls
-			._11pfm-p6kRU6CrLDyLhi3a {
-				margin-top: $statusBarHeight; // Move Home and Library content below the Status Bar
-			}
 
-			// Hide the infinite loading div creating unnecessary space at the bottom
-			div[style="padding: 10px 0px 30px;"] {
-				display: none;
+		.main-view-container__scroll-node {
+
+			.main-view-container__scroll-node-child {
+				padding-bottom: 8px;
 			}
 		}
 	}
 
+	// Popup notification (for Desktop)
+	._885aba49a0600c4f37894dd00ef10f8e\.scss {
+		z-index: 300;
+
+		// Popup notification
+		._7978d1a53eb00cc7b3a900c911fd0493\.scss {
+			min-width: 200px;
+			top: calc(-82px + 50%);
+			left: 50%;
+			position: -ms-device-fixed;
+			transform: translateX(-50%);
+			z-index: 300;
+		}
+	}
+
 	// Podcast episode description page
-	._2gwrTZfYN8-9w_lJJQs6-J {
+	.ad6f7074db563f98f848cc3ffdbd8190\.scss {
 		padding: 40px 0 0;
-	//	padding-bottom: 150px;
 
 		// Header (art, play button and descriptions)
-		._1EhXu-6E7989P5tH_gJXI_ {
+		._3fbbb7d0bf76c59c20c9811abeb74768\.scss {
 			display: flex;
 			flex-direction: column;
 			padding: 0 24px;
@@ -44,12 +55,11 @@
 			}
 
 			// Play button container
-			._1Pn9dKvC6fArYF-v0wfhvS {
+			.f6173d20f0f929bf918f617e6e935c73\.scss {
 				padding: 16px 0;
 
 				// For some reason this button does not use the standard button style
 				button {
-				//	font-size: 12px;
 					line-height: 18px;
 					padding: 11px 44px;
 					font-weight: var(--glue-font-weight-black);
@@ -60,13 +70,12 @@
 			// Center episode title 1
 			h1 {
 				text-align: center;
-				font-size: 28px;
 				font-weight: var(--glue-font-weight-black);
 				margin: 0;
 			}
 
 			// Center episode date and duration
-			._3Eww95sj_r_sRJXqgFcjxU {
+			._78383129a4ed6dcdfddb3f71450282e8\.scss {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
@@ -79,27 +88,27 @@
 				}
 
 				// Fix for missing font glyphs
-				._2mShaXz92UAVInSvwS9FAh {
+				._11992636f8d9179b93b8908cbb12d996\.scss {
 					font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 					font-weight: var(--glue-font-weight-normal);
 				}
 			}
 
 			// Description container
-			._1xbSWNm9t140jDFNFxE0to._3NOo5NqspC9kHM8x_oJdzY {
+			._5807a0611aa7e70410419758b16e2f61\.scss.fcd8b4d81f22f04a2566c6697181c9f1\.scss {
 				// Unwrap description text
-				._1EpCyCQkO1mWZNW-ZQ-6l- {
+				._7e65f874efeb71af5b814cd1a6686668\.scss {
 					height: auto !important;
 					mask-image: none !important;
 
                     // Description font
-                    ._5HLGmANFIK7to55ZbGSL4 {
+                    ._4c34a3836b2852f3c718b9296feebe53\.scss {
                         font-weight: var(--glue-font-weight-normal);
                     }
 				}
 
 				// "Read more" button
-				.iiMvAyhkozP8HoC4dzGy1 {
+				._81a88e0d61622b328f181589e4074b12\.scss {
 					display: none !important;
 				}
 			}
@@ -108,40 +117,46 @@
 // You May Also Like section
 
 		// Remove unneeded padding for You May Also Like section
-		._2pQl2ltKQQEKBX18Us_RJf {
+		._39d08a4b27a1d1770330bf43475d55d8\.scss._4f5bff1c8e047be9a234ed769550d199\.scss {
 			padding-top: 0;
 
 			// You May Also Like text
-			._198eLrjukEz34xHlH9mAg3 {
+			._03445ac95aad21318c28e54ddbeb2049\.scss {
 				font-size: 22px;
 				text-align: center;
 			}
 
 			// Convert You May Also Like section into horizontal scrolling
-			._2Sf-9i8rxxP0vzBjZ-XUpC {
+			._6686ef7e3f95e307cc61b82152e23fb6\.scss {
 				display: flex;
 				overflow-x: scroll;
 				flex-wrap: nowrap;
 
 				// Remove background for You May Also Like thumbnails
-				._2Ntqi7qecYmki6xI-INBxm {
+				._5658c6accf868644593ce36887a475b1\.scss {
 					background: none;
+					padding: 0 8px 16px;
+
+					// Remove small image thumbnail
+					._31deeacc1d30b0519bfefa0e970ef31d\.scss.ee924b9c3e7d687b38e77b5e0c33e536\.scss {
+						display: none;
+					}
 
 					// Episode description
-					.jWbTf5mYRdUXz0agGVwr9 {
+					.c906e62aa400e38e37356f15cfbde813\.scss {
 						text-align: center;
 						width: 128px;
 					}
 
 					// Fix for missing font glyphs in You May Also Like section
-					._2Y3snrljh1V4imam-96Q7C {
+					._4ff5c60635f8d0128d305710147cceb5\.scss.ae0f6218491fa7e7f41eec2add69387e\.scss {
 						font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 						text-align: center;
 					}
 
-					// Hide long episode description
-		 			._3fdhwT1FLUKpSTVz_8ymjl {
-						display: none;
+					// Hide long episode description but keep hyperlinks
+		 			.d9eb38f5d59f5fabd8ed07639aa3ab77\.scss.d56489c83fe6b79db9f89b06371835cf\.scss {
+						text-indent: -9999px;
 					}
 				}
 			}
@@ -170,6 +185,13 @@
 				}
 			}
 		}
+
+        .content {
+
+            .container-fluid.container-fluid--noSpaceAround {
+                margin: 0 -8px;
+            }
+        }
 	}
 
 	h1 {
@@ -191,8 +213,9 @@
 
 	// Grid list (Album list, podcast list, ...)
 	.container-fluid {
-		.row {
-			//margin-left: -12px;
+
+		._88274e8b8f91af984c5318d16d5d4d08\.scss, ._7b1a050833cf73a0f06dc3a6402e38f1\.scss {
+			margin: 0 -16px;
 		}
 	
 		// Show 3 items per row instead of 2
@@ -237,6 +260,7 @@
 		//background-color: rgba(0, 0, 0, 0.4);
 		margin-bottom: 16px;
 		padding-top: 8px;
+		margin-top: $statusBarHeight;
 
 		ul {
 			display: flex;
@@ -278,14 +302,10 @@
 
 // Raise bottom content above the ad banner when it is visible
 .Root__main-view--has-ads {
-	.main-view-container {
-		.main-view-container__scroll-node {
-			padding-bottom: 160px;
-		}
-	}
-}
+	padding: 0 0 152px 0 !important;
 
-// Remove hidden element
-._2e3_4eQ4S9dQYcoa19KBG8 {
-	display: none;
+	// Popup notification
+	._7978d1a53eb00cc7b3a900c911fd0493\.scss {
+		top: calc(-108px + 50%);
+	}
 }

@@ -45,7 +45,7 @@
 		.react-contextmenu-wrapper {
 			display: block;
 			position: absolute;
-			right: 8px; // Align the button the same way it's aligned in Tracklist
+			right: 3px; // Align the button the same way it's aligned in Tracklist
 			top: 40px;
 
 			button {
@@ -67,6 +67,7 @@
 
 		&__insights {
 			margin-top: 16px;
+			padding: 0;
 
 			li {
 				margin-bottom: 8px;
