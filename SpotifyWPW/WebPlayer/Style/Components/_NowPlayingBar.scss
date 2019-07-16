@@ -5,14 +5,13 @@
 @import "../Generic";
 
 .Root__now-playing-bar {
-	position: static;
+	position: -ms-device-fixed; // Keeps NowPlaying Bar in place during NowPlayingView animation
 	bottom: 52px; // Navbar height
 	height: 48px;
-	z-index: 100; // Makes NowPlaying Bar clickable
 	background-color: black;
 
 	.nowPlayingViewHidden & {
-		position: -ms-device-fixed;
+		z-index: 100; // Makes NowPlaying Bar clickable
 	}
 
 	.now-playing-bar {
